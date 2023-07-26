@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    # ./browsers.nix
+    ./browsers.nix
     # ./common.nix
     ./git.nix
     # ./media.nix
