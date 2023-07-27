@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the name of the current i3 workspace
 # WORKSPACE_NAME=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused).name')
@@ -8,7 +8,8 @@ TERMINAL_DATA=$(i3-msg -t get_tree | jq '.. | select(.name? | tostring | startsw
 
 # Check if terminal session already exists
 if [ -z "$TERMINAL_DATA" ]; then
-	xfce4-terminal --title="$SESSION_NAME" &
+	i3-sensible-terminal --title="$SESSION_NAME" &
+	# xfce4-terminal --title="$SESSION_NAME" &
 	exit 0
 	# if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
 	# Open a new terminal and start the tmux session
