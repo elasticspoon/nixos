@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  programs.tmux = {
+    enable = true;
+  };
+
   home.file.".tmux.conf".source = ./config;
   home.file.".config/tmux/scripts" = {
     source = ./scripts;
