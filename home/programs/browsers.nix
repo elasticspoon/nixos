@@ -13,7 +13,7 @@
 
     firefox = {
       enable = true;
-      profiles.bandito = {};
+     #  profiles.bandito = {};
     };
   };
 }
