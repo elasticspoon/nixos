@@ -71,6 +71,7 @@
     wget
     curl
     git
+    pinentry
     xfce.thunar  # xfce4's file manager
   ];
 
