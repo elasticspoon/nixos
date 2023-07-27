@@ -4,8 +4,8 @@
 
   imports = [
     # ./fcitx5
-    # ./i3
-     ./programs
+    ./i3
+    ./programs
     # ./rofi
     # ./shell
   ];
