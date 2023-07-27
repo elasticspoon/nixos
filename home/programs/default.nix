@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./browsers.nix
-    # ./common.nix
+    ./common.nix
     ./git.nix
     # ./media.nix
     # ./vscode.nix
