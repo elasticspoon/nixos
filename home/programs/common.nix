@@ -36,6 +36,8 @@
     # dbeaver
     # mycli
     # pgcli
+
+    gpg
   ];
 
   programs = {
