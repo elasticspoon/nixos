@@ -4,6 +4,7 @@
 
   imports = [
     # ./fcitx5
+    ./tmux
     ./i3
     ./programs
     # ./rofi
