@@ -5,6 +5,7 @@
   imports = [
     # ./fcitx5
     ./tmux
+    ./nvim
     ./i3
     ./programs
     # ./rofi
