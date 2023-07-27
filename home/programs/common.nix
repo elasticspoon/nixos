@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # archives
     # zip
-    # unzip
+    unzip
     # p7zip
 
     # utils
@@ -27,10 +27,10 @@
     # kubectl
 
 
-    # nodejs
-    # nodePackages.npm
-    # nodePackages.pnpm
-    # yarn
+    nodejs
+    nodePackages.npm
+    nodePackages.pnpm
+    yarn
 
     # db related
     # dbeaver

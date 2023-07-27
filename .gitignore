@@ -1,1 +1,4 @@
 *.swp
+result
+result/
+.DS_Store
