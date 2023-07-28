@@ -17,7 +17,7 @@
   
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # icon fonts
       material-design-icons
 
@@ -29,9 +29,6 @@
       # nerdfonts
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
-
-    # use fonts specified by user rather than default ones
-    enableDefaultFonts = false;
 
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
