@@ -29,6 +29,11 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    pmutils
+  ];
+
+
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

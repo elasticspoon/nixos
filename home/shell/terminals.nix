@@ -1,29 +1,24 @@
-{ pkgs, ... }:
-
-# terminals
-
-let
-  font = "JetBrainsMono Nerd Font";
-in
 {
-  programs.alacritty = {
+  ...
+}:
+{
+  programs.kitty = {
     enable = true;
-    settings = {
-      window.opacity = 0.95;
-      window.dynamic_padding = true;
-      window.padding = {
-        x = 5;
-        y = 5;
-      };
-      scrolling.history = 10000;
-
-      font = {
-        normal.family = font;
-        bold.family = font;
-        italic.family = font;
-        size = 11;
-      };
-
+    theme = "Tokyo Night";
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      # use different font size on macOS
+      size = 12;
     };
+
+    settings =
+      {
+        scrollback_lines = 10000;
+        enable_audio_bell = false;
+      };
+  };
+
+  home.sessionVariables = {
+    TERMINAL = "kitty";
   };
 }
