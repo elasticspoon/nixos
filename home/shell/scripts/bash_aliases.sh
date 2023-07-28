@@ -7,6 +7,9 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+# retry last command with sudo
+alias please='sudo $(fc -ln -1)'
+
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
