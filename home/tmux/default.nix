@@ -3,16 +3,13 @@
   config,
   ...
 }: {
+  imports = [
+    ../programs/fzf.nix
+  ];
+
   programs.tmux.enable = true;
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-  };
-
   home.file = {
-
     ".tmux.conf".source = ./config;
     ".config/tmux/statusline.conf".source = ./statusline.conf;
     ".config/tmux/tmux-cht-command".source = ./tmux-cht-command;
