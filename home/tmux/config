@@ -1,5 +1,11 @@
 # improve colors
-set -g default-terminal 'screen-256color'
+set -g default-terminal 'tmux-256color'
+
+set-option -gas terminal-overrides "*:Tc" # true color support
+set-option -gas terminal-overrides "*:RGB" # true color support
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+
 # act like vim
 setw -g mode-keys vi
 bind-key h select-pane -L
@@ -70,10 +76,6 @@ bind-key -n C-S-Right swap-window -t +1 \; next-window
 set-option -g history-limit 64096
 
 source ~/.config/tmux/statusline.conf
-
-# setw -g window-status-format ' #S  '
-# setw -g window-status-current-format ' #S [#I:#W] '
-#
 
 ## TMUX NAVIGATOR
 # Smart pane switching with awareness of Vim splits.

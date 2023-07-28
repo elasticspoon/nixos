@@ -33,6 +33,10 @@
     pmutils
   ];
 
+  environment.sessionVariables = {
+    MONITOR = "1080+1440";
+    };
+
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # Pick only one of the below networking options.
