@@ -77,6 +77,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Use backspace key for matching parens
 vim.keymap.set({ "n", "x" }, "<BS>", "%", { remap = true, desc = "Jump to Paren" })
 
+vim.keymap.set("n", "<leader>e", ":Explore<cr>", { desc = "Show Current Dir" })
 vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 
 
