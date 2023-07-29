@@ -33,6 +33,7 @@
       ripgrep
       coreutils
       fd
+      manix # nix manual searcher
 
       # Terminal
       # btop              # Resource Manager

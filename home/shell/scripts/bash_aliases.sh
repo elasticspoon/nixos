@@ -55,7 +55,3 @@ alias ,path_e='export PATH="$PWD/bin:$PATH"'
 
 # misc
 alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_crap/random_movie.rb'
-
-# NIXOS
-alias ,nix-try='pushd ~/.dotfiles; git add .; sudo nixos-rebuild switch --flake .#; popd'
-alias ,nix-save='pushd ~/.dotfiles; git add .; git commit -m "Update: $(date)"; popd'

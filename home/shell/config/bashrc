@@ -93,6 +93,11 @@ if [ -f ~/.config/bash/scripts/bash_aliases.sh ]; then
 	. ~/.config/bash/scripts/bash_aliases.sh
 fi
 
+# NIX OS Aliases
+if [ -f ~/.config/bash/scripts/nix_aliases.sh ]; then
+	. ~/.config/bash/scripts/nix_aliases.sh
+fi
+
 ###############################################################################
 # ENV VARS
 ###############################################################################
