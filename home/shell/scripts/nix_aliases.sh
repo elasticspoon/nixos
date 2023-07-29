@@ -13,7 +13,7 @@ sudo ./result/bin/switch-to-configuration test
 popd > /dev/null
 )'
 
-,nix-doc() {
+nix-doc() {
 	manix $1
 }
 
