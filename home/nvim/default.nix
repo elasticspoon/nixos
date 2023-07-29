@@ -7,7 +7,6 @@
   imports = [
     ../dev/ruby.nix
     ../programs/lazygit.nix
-    ../programs/style-lua.nix
   ];
 
 
@@ -24,6 +23,10 @@
       # copy the scripts directory recursively
       recursive = true;
     };
+
+    packages = with pkgs; [
+      stylua
+    ];
   };
 
 }

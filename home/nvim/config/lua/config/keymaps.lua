@@ -77,6 +77,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Use backspace key for matching parens
 vim.keymap.set({ "n", "x" }, "<BS>", "%", { remap = true, desc = "Jump to Paren" })
 
+vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
+
+
 --move windows
 -- vim.keymap.set("n", "<C-Left>", "<C-w>R", { desc = "Move split left" })
 -- vim.keymap.set("n", "<C-Right>", "<C-w>r", { desc = "Move split right" })
