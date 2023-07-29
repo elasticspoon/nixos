@@ -11,7 +11,7 @@
 #            └─ ./home.nix 
 #
 
-{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, nur, user, location, dslr, doom-emacs, hyprland, plasma-manager, ... }:
+{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, nur, user, dslr, ... }:
 
 let
   system = "x86_64-linux";                                  # System architecture
@@ -34,6 +34,42 @@ let
   lib = nixpkgs.lib;
 in
 {
+  nixos-desktop = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs unstable system user fix;
+    };                                                      # Pass flake variable
+
+    modules = [
+      ./nixos-desktop
+
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+
+        home-manager.extraSpecialArgs = inputs;
+        home-manager.users.bandito = import ../home;
+      }
+    ];
+  };
+
+  nixos-vbox = lib.nixosSystem {
+    system = "x86_64-linux";
+
+    modules = [
+      ./nixos-vbox
+
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+
+        home-manager.extraSpecialArgs = inputs;
+        home-manager.users.bandito = import ../home;
+      }
+    ];
+  };
   # vm = lib.nixosSystem {                                    # VM profile
   #   inherit system;
   #   specialArgs = {
@@ -67,7 +103,7 @@ in
   desktop = lib.nixosSystem {
     inherit system;
     specialArgs = {
-      inherit inputs unstable system user location fix;
+      inherit inputs unstable system user fix;
       host = {
         hostName = "desktop";
       #   mainMonitor = "HDMI-A-1";
@@ -77,7 +113,7 @@ in
     modules = [                                             # Modules that are used.
       nur.nixosModules.nur
       # hyprland.nixosModules.default
-      ./hosts/desktop
+      ./desktop
       ./configuration.nix
 
       home-manager.nixosModules.home-manager {              # Home-Manager module that is used.

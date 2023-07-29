@@ -21,6 +21,7 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";      
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
+    dslr.url = "github:nixos/nixpkgs/nixos-22.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,54 +39,19 @@
       nixpkgs-unstable,
       home-manager,
       nur,
+      dslr,
       ...
   }: 
   let 
     user = "bandito";
   in
   {
-    desktop = (
+    nixosConfigurations = (
       import ./hosts {
         inherit (nixpkgs) lib;
         # Also inherit home-manager so it does not need to be defined here.
-        inherit inputs nixpkgs nixpkgs-unstable home-manager nur user;
+        inherit inputs nixpkgs nixpkgs-unstable home-manager nur user dslr;
       }
     );
-
-    nixosConfigurations = {
-      nixos-vbox = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          ./hosts/nixos-vbox
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.extraSpecialArgs = inputs;
-            home-manager.users.bandito = import ./home;
-          }
-        ];
-      };
-
-      nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          ./hosts/nixos-desktop
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.extraSpecialArgs = inputs;
-            home-manager.users.bandito = import ./home;
-          }
-        ];
-      };
-    };
   };
 }
