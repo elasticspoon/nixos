@@ -13,10 +13,6 @@ sudo ./result/bin/switch-to-configuration test
 popd > /dev/null
 )'
 
-nix-doc() {
-	manix $1
-}
-
 alias ,nix-save='(
 pushd ~/.dotfiles > /dev/null
 git add .
