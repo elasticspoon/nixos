@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [[ "$MONITOR" == "1080x1440" ]]; then
+if [[ "$MONITOR" == "1080+1440" ]]; then
 	xrandr \
 		--output DP-1 --off \
 		--output DP-2 --primary --mode 3440x1440 --pos 1920x0 --rotate normal \

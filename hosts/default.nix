@@ -16,10 +16,10 @@
 let
   system = "x86_64-linux";                                  # System architecture
 
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
-  };
+  # pkgs = import nixpkgs {
+  #   inherit system;
+  #   config.allowUnfree = true;                              # Allow proprietary software
+  # };
 
   unstable = import nixpkgs-unstable {
     inherit system;
@@ -121,11 +121,11 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit unstable user fix;
-          # host = {
-          #   hostName = "desktop";       #For Xorg iGPU  | Hyprland iGPU
+          host = {
+            hostName = "desktop";       #For Xorg iGPU  | Hyprland iGPU
           #   mainMonitor = "HDMI-A-1";   #HDMIA3         | HDMI-A-3
           #   secondMonitor = "HDMI-A-2"; #DP1            | DP-1
-          # };
+          };
         };                                                  # Pass flake variable
         home-manager.users.${user} = {
           imports = [

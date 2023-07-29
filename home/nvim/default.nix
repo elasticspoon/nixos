@@ -18,9 +18,12 @@
   };
 
 
-  home.file.".config/nvim" = {
-    source = ./config;
-    # copy the scripts directory recursively
-    recursive = true;
+  home = {
+    file.".config/nvim" = {
+      source = ./config;
+      # copy the scripts directory recursively
+      recursive = true;
+    };
   };
+
 }

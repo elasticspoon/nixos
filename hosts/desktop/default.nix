@@ -22,6 +22,7 @@
 
 {
   imports = [
+      # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -40,6 +41,8 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  networking.hostName = "desktop"; # Define your hostname.
+  
 
 
   # hardware = {

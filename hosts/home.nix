@@ -30,6 +30,10 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      ripgrep
+      coreutils
+      fd
+
       # Terminal
       # btop              # Resource Manager
       # ranger            # File Manager

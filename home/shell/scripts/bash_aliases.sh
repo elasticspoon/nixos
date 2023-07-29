@@ -17,7 +17,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias ,scripts_setup='cd ~/Documents/Setup_Scripts'
 alias ,notes='cd ~/Documents/notes'
 alias ,scripts_test='cd ~/Documents/notes/code/cool_scripts'
-alias ,r_b='echo Reloading Bash!; source ~/.bashrc'
+alias ,bash_r='echo Reloading Bash!; source ~/.bashrc'
 
 # Rails
 alias ,kill_tmp='rm -f /home/bandito/Documents/odin/rails_projects/private-events/tmp/pids/server.pid'
@@ -58,4 +58,4 @@ alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_cra
 
 # NIXOS
 alias ,nix-try='pushd ~/.dotfiles; git add .; sudo nixos-rebuild switch --flake .#; popd'
-alias ,nix-save='pushd ~/.dotfiles; git add .; git commit -m "Update: $(date)"; sudo nixos-rebuild switch --flake .#; popd'
+alias ,nix-save='pushd ~/.dotfiles; git add .; git commit -m "Update: $(date)"; popd'
