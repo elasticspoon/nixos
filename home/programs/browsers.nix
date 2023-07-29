@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  nur,
   ...
 }: {
   programs = {
@@ -13,7 +14,19 @@
 
     firefox = {
       enable = true;
-     #  profiles.bandito = {};
+
+      profiles.default = {
+        id = 0;
+        name = "bandito";
+        isDefault = true;
+
+        extraConfig = ''
+          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+      '';
+      };
     };
   };
+
+  home.file.".mozilla/firefox/bandito/chrome/userChrome.css".source = ./userChrome.css;
+  home.file.".mozilla/firefox/bandito/chrome/userContent.css".source = ./userContent.css;
 }

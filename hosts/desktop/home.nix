@@ -11,7 +11,7 @@
 #               └─ home.nix
 #
 
-{ pkgs, ... }:
+{ pkgs, nur, ... }:
 
 {
     imports = [
