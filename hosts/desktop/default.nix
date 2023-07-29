@@ -1,0 +1,111 @@
+#
+#  Specific system configuration settings for desktop
+#
+#  flake.nix
+#   ├─ ./hosts
+#   │   └─ ./desktop
+#   │        ├─ default.nix *
+#   │        └─ hardware-configuration.nix
+#   └─ ./modules
+#       ├─ ./desktop
+#       │   ├─ ./hyprland
+#       │   │   └─ default.nix
+#       │   └─ ./virtualisation
+#       │       └─ default.nix
+#       ├─ ./programs
+#       │   └─ games.nix
+#       └─ ./hardware
+#           └─ default.nix
+#
+
+{ pkgs, lib, user, ... }:
+
+{
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  boot.loader = {
+    systemd-boot.enable = false;
+
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+
+    grub = {
+      enable = true;
+      efiSupport = true;
+      devices = [ "nodev" ];
+      useOSProber = true;
+    };
+  };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+
+  # hardware = {
+  #   sane = {                                    # Used for scanning with Xsane
+  #     enable = true;
+  #     extraBackends = [ pkgs.sane-airscan ];
+  #   };
+  #   opengl = {
+  #     enable = true;
+  #     extraPackages = with pkgs; [
+  #       #intel-media-driver                     # iGPU
+  #       #vaapiIntel
+  #     #  rocm-opencl-icd                         # AMD
+  #     #  rocm-opencl-runtime
+  #     amdvlk
+  #     ];
+  #     extraPackages32 = with pkgs; [
+  #       driversi686Linux.amdvlk
+  #     ];
+  #     driSupport = true;
+  #     driSupport32Bit = true;
+  #   };
+  # };
+
+  environment = {                               # Packages installed system wide
+    sessionVariables = {
+      MONITOR = "1080+1440";
+    };
+
+    systemPackages = with pkgs; [               # This is because some options need to be configured.
+      discord
+      pmutils
+      # plex
+      # simple-scan
+      # x11vnc
+      # wacomtablet
+      # clinfo
+    ];
+    # variables = {
+    #  LIBVA_DRIVER_NAME = "i965";
+    # };
+  };
+
+  # services = {
+    # blueman.enable = true;                      # Bluetooth
+    # samba = {                                   # File Sharing over local network
+    #   enable = true;                            # Don't forget to set a password:  $ smbpasswd -a <user>
+    #   shares = {
+    #     share = {
+    #       "path" = "/home/${user}";
+    #       "guest ok" = "yes";
+    #       "read only" = "no";
+    #     };
+    #   };
+    #   openFirewall = true;
+    # };
+  # };
+
+  nixpkgs.overlays = [                          # This overlay will pull the latest version of Discord
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: { src = builtins.fetchTarball {
+          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+          sha256 = "1z980p3zmwmy29cdz2v8c36ywrybr7saw8n0w7wlb74m63zb9gpi";
+        };}
+      );
+    })
+  ];
+}

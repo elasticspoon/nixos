@@ -20,21 +20,39 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";      
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {                                                               # NUR Packages
+      url = "github:nix-community/NUR";                                   # Add "nur.nixosModules.nur" to the host modules
+    };
   };
 
-  outputs = inputs@{
+  outputs = inputs @ {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
+      nur,
       ...
-  }: {
-    nixosConfigurations = {
+  }: 
+  let 
+    user = "bandito";
+  in
+  {
+    desktop = (
+      import ./hosts {
+        inherit (nixpkgs) lib;
+        # Also inherit home-manager so it does not need to be defined here.
+        inherit inputs nixpkgs nixpkgs-unstable home-manager nur user;
+      }
+    );
 
+    nixosConfigurations = {
       nixos-vbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
