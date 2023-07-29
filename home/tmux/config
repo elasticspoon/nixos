@@ -57,6 +57,8 @@ set -g prefix C-space
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 
+bind-key -r v run-shell "tmux send-keys :qa\nnvim\n"
+
 bind-key -r f run-shell "tmux neww ~/.config/tmux/scripts/tmux-sessionizer"
 bind-key -r i run-shell "tmux neww ~/.config/tmux/scripts/tmux-cht.sh"
 # bind-key -r G run-shell "~/.local/bin/tmux-sessionizer ~/work/nrdp"
