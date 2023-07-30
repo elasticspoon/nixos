@@ -16,6 +16,7 @@
 {
     imports = [
       ../../home/programs/browsers.nix
+      ../../home/programs/syncthing.nix
     ];
 
   home = {                                # Specific packages for desktop
@@ -46,5 +47,18 @@
   #     #shotcut          # Video Editor
       obsidian
     ];
+    
+
   };
+  # services = {
+  #   syncthing = {
+  #     tray.enable = true;
+  #     enable = true;
+  #     extraOptions = [
+  #       "-no-browser"
+  #       "-home=/home/bandito/.config/syncthing"
+  #     ];
+  #   };
+  # };
+
 }

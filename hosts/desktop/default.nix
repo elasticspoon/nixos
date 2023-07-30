@@ -86,7 +86,7 @@
     # };
   };
 
-  # services = {
+  services = {
     # blueman.enable = true;                      # Bluetooth
     # samba = {                                   # File Sharing over local network
     #   enable = true;                            # Don't forget to set a password:  $ smbpasswd -a <user>
@@ -99,7 +99,47 @@
     #   };
     #   openFirewall = true;
     # };
-  # };
+    syncthing = {
+      enable = true;
+      overrideDevices = true;
+      user = "${user}";
+      # group = "users";
+      relay.enable = false;
+      dataDir = "/home/${user}/Sync";
+      configDir = "/home/${user}/.config/syncthing";
+
+      settings = {
+        devices = {
+        "Pixel 6a" = {
+            id = "EO5PL2Y-WNWNWAM-4QGGDVB-5A47DHC-SJKOZVP-KSG4DLE-JXKIJDY-C2TJ3QS";
+            name = "Pixel 6a";
+            introducer = true;
+          };
+        "Windows Desktop" = {
+            id = "UO6UO5Z-OEMYAAX-EKKFBTX-XI6WP2T-5F25BDW-PMM7KV5-TTAYTAX-ZDGOJQZ";
+          };
+        "Yuri Tablet" = {
+            id = "6XMICIS-L2QSUCF-LQ2CAY4-HXR4SMU-YCDTJVI-3DNBVC4-VLKAPRB-SNB7UQM";
+          };
+        };
+
+        folders = {
+          "Misc" = {
+            id = "a2bre-qfgy9";
+            devices = ["Pixel 6a"];
+            path = "/home/${user}/Sync/Misc";
+            label = "Misc Shared";
+          };
+        };
+      };
+
+    };
+  };
+
+  # systemd.tmpfiles.rules = [
+  #   "d /home/${user}/Sync 0770 ${user} users -"
+  #   "d /home/${user}/.config/syncthing 0770 ${user} users -"
+  # ];
 
   nixpkgs.overlays = [                          # This overlay will pull the latest version of Discord
     (self: super: {

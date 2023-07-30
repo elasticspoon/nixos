@@ -36,6 +36,11 @@
     keyMap = "us";                          # or us/azerty/etc
   };
 
+  environment = {
+    sessionVariables = {
+      BROWSER = "firefox";
+    };
+  };
   # security.rtkit.enable = true;
   # security.polkit.enable = true;
 

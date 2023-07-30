@@ -17,7 +17,7 @@
 
       profiles.default = {
         id = 0;
-        name = "bandito";
+        name = "default";
         isDefault = true;
 
         extraConfig = ''
@@ -27,6 +27,6 @@
     };
   };
 
-  home.file.".mozilla/firefox/bandito/chrome/userChrome.css".source = ./userChrome.css;
-  home.file.".mozilla/firefox/bandito/chrome/userContent.css".source = ./userContent.css;
+  home.file.".mozilla/firefox/default/chrome/userChrome.css".source = ./userChrome.css;
+  home.file.".mozilla/firefox/default/chrome/userContent.css".source = ./userContent.css;
 }
