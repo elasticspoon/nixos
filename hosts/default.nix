@@ -61,21 +61,60 @@ in
   };
 
   nixos-vbox = lib.nixosSystem {
-    system = "x86_64-linux";
-
+    inherit system;
+    specialArgs = {
+      inherit inputs unstable system user fix;
+      host = {
+        hostName = "nixos-vbox";
+        #   mainMonitor = "HDMI-A-1";
+        #   secondMonitor = "HDMI-A-2";
+      };
+    }; # Pass flake variable
     modules = [
+      # Modules that are used.
+      nur.nixosModules.nur
+      # hyprland.nixosModules.default
       ./nixos-vbox
+      ./configuration.nix
 
       home-manager.nixosModules.home-manager
       {
+        # Home-Manager module that is used.
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-
-        home-manager.extraSpecialArgs = inputs;
-        home-manager.users.bandito = import ../home;
+        home-manager.extraSpecialArgs = {
+          inherit unstable user fix;
+          host = {
+            hostName = "nixos-vboxx"; #For Xorg iGPU  | Hyprland iGPU
+            #   mainMonitor = "HDMI-A-1";   #HDMIA3         | HDMI-A-3
+            #   secondMonitor = "HDMI-A-2"; #DP1            | DP-1
+          };
+        }; # Pass flake variable
+        home-manager.users.${user} = {
+          imports = [
+            ./home.nix
+            ./nixos-vbox/home.nix
+          ];
+        };
       }
     ];
   };
+  # nixos-vbox = lib.nixosSystem {
+  #   system = "x86_64-linux";
+  #
+  #   modules = [
+  #     ./nixos-vbox
+  #
+  #     home-manager.nixosModules.home-manager
+  #     {
+  #       home-manager.useGlobalPkgs = true;
+  #       home-manager.useUserPackages = true;
+  #
+  #       home-manager.extraSpecialArgs = inputs;
+  #       home-manager.users.bandito = import ../home;
+  #     }
+  #   ];
+  # };
   # vm = lib.nixosSystem {                                    # VM profile
   #   inherit system;
   #   specialArgs = {

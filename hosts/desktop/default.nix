@@ -17,12 +17,9 @@
 #       └─ ./hardware
 #           └─ default.nix
 #
-
-{ pkgs, lib, user, ... }:
-
-{
+{ pkgs, ... }: {
   imports = [
-      # Include the results of the hardware scan.
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/syncthing.nix
   ];
@@ -43,8 +40,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "desktop"; # Define your hostname.
-  
-
 
   # hardware = {
   #   sane = {                                    # Used for scanning with Xsane
@@ -68,12 +63,14 @@
   #   };
   # };
 
-  environment = {                               # Packages installed system wide
+  environment = {
+    # Packages installed system wide
     sessionVariables = {
       MONITOR = "1080+1440";
     };
 
-    systemPackages = with pkgs; [               # This is because some options need to be configured.
+    systemPackages = with pkgs; [
+      # This is because some options need to be configured.
       discord
       pmutils
       # plex
@@ -102,13 +99,16 @@
     # };
   };
 
-  nixpkgs.overlays = [                          # This overlay will pull the latest version of Discord
+  nixpkgs.overlays = [
+    # This overlay will pull the latest version of Discord
     (self: super: {
       discord = super.discord.overrideAttrs (
-        _: { src = builtins.fetchTarball {
-          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-          sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
-        };}
+        _: {
+          src = builtins.fetchTarball {
+            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+            sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
+          };
+        }
       );
     })
   ];
