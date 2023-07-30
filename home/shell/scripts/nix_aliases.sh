@@ -16,7 +16,6 @@ popd > /dev/null
 alias ,nix-save='(
 pushd ~/.dotfiles > /dev/null
 git add .
-git commit -m "Update: $(date)"
 sudo nixos-rebuild switch --flake .#
 popd > /dev/null
 )'
