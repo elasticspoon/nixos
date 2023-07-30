@@ -1,20 +1,26 @@
 #
 #  These are the different profiles that can be used when building NixOS.
 #
-#  flake.nix 
-#   └─ ./hosts  
+#  flake.nix
+#   └─ ./hosts
 #       ├─ default.nix *
 #       ├─ configuration.nix
 #       ├─ home.nix
 #       └─ ./desktop OR ./laptop OR ./work OR ./vm
 #            ├─ ./default.nix
-#            └─ ./home.nix 
+#            └─ ./home.nix
 #
-
-{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, nur, user, dslr, ... }:
-
+{ inputs
+, nixpkgs
+, nixpkgs-unstable
+, home-manager
+, nur
+, user
+, dslr
+, ...
+}:
 let
-  system = "x86_64-linux";                                  # System architecture
+  system = "x86_64-linux"; # System architecture
 
   # pkgs = import nixpkgs {
   #   inherit system;
@@ -23,12 +29,12 @@ let
 
   unstable = import nixpkgs-unstable {
     inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
+    config.allowUnfree = true; # Allow proprietary software
   };
 
   fix = import dslr {
     inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
+    config.allowUnfree = true; # Allow proprietary software
   };
 
   lib = nixpkgs.lib;
@@ -38,7 +44,7 @@ in
     inherit system;
     specialArgs = {
       inherit inputs unstable system user fix;
-    };                                                      # Pass flake variable
+    }; # Pass flake variable
 
     modules = [
       ./nixos-desktop
@@ -106,27 +112,30 @@ in
       inherit inputs unstable system user fix;
       host = {
         hostName = "desktop";
-      #   mainMonitor = "HDMI-A-1";
-      #   secondMonitor = "HDMI-A-2";
+        #   mainMonitor = "HDMI-A-1";
+        #   secondMonitor = "HDMI-A-2";
       };
-    };                                                      # Pass flake variable
-    modules = [                                             # Modules that are used.
+    }; # Pass flake variable
+    modules = [
+      # Modules that are used.
       nur.nixosModules.nur
       # hyprland.nixosModules.default
       ./desktop
       ./configuration.nix
 
-      home-manager.nixosModules.home-manager {              # Home-Manager module that is used.
+      home-manager.nixosModules.home-manager
+      {
+        # Home-Manager module that is used.
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit unstable user fix;
           host = {
-            hostName = "desktop";       #For Xorg iGPU  | Hyprland iGPU
-          #   mainMonitor = "HDMI-A-1";   #HDMIA3         | HDMI-A-3
-          #   secondMonitor = "HDMI-A-2"; #DP1            | DP-1
+            hostName = "desktop"; #For Xorg iGPU  | Hyprland iGPU
+            #   mainMonitor = "HDMI-A-1";   #HDMIA3         | HDMI-A-3
+            #   secondMonitor = "HDMI-A-2"; #DP1            | DP-1
           };
-        };                                                  # Pass flake variable
+        }; # Pass flake variable
         home-manager.users.${user} = {
           imports = [
             ./home.nix

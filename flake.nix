@@ -16,11 +16,9 @@
     ];
   };
 
-
   inputs = {
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";      
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable Nix Packages
     dslr.url = "github:nixos/nixpkgs/nixos-22.11";
 
     home-manager = {
@@ -28,30 +26,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {                                                               # NUR Packages
-      url = "github:nix-community/NUR";                                   # Add "nur.nixosModules.nur" to the host modules
-    };
+    nur.url = "github:nix-community/NUR"; # Add "nur.nixosModules.nur" to the host modules NUR Packages
   };
 
-  outputs = inputs @ {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      nur,
-      dslr,
-      ...
-  }: 
-  let 
-    user = "bandito";
-  in
-  {
-    nixosConfigurations = (
-      import ./hosts {
-        inherit (nixpkgs) lib;
-        # Also inherit home-manager so it does not need to be defined here.
-        inherit inputs nixpkgs nixpkgs-unstable home-manager nur user dslr;
-      }
-    );
-  };
+  outputs =
+    inputs @ { nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , nur
+    , dslr
+    , ...
+    }:
+    let
+      user = "bandito";
+    in
+    {
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          # Also inherit home-manager so it does not need to be defined here.
+          inherit inputs nixpkgs nixpkgs-unstable home-manager nur user dslr;
+        }
+      );
+    };
 }

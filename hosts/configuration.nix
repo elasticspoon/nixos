@@ -10,31 +10,36 @@
 #       └─ ./shell
 #           └─ default.nix
 #
-
-{ config, lib, pkgs, inputs, user, ... }:
-
-{
+{ config
+, pkgs
+, inputs
+, user
+, ...
+}: {
   imports = [
     ../modules/i3.nix
-  #   ../modules/system.nix
+    #   ../modules/system.nix
   ];
-    # (import ../modules/editors) ++          # Native doom emacs instead of nix-community flake
-    # (import ../modules/shell);
+  # (import ../modules/editors) ++          # Native doom emacs instead of nix-community flake
+  # (import ../modules/shell);
 
-  users.users.${user} = {                   # System User
+  users.users.${user} = {
+    # System User
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" "kvm" "libvirtd" "plex" ];
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
 
-  time.timeZone = "America/New_York";        # Time zone and internationalisation
+  time.timeZone = "America/New_York"; # Time zone and internationalisation
 
   i18n.defaultLocale = "en_US.UTF-8";
 
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "us";                          # or us/azerty/etc
+    keyMap = "us"; # or us/azerty/etc
   };
+
+  documentation.man.generateCaches = true;
 
   environment = {
     sessionVariables = {
@@ -82,11 +87,12 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-    systemPackages = with pkgs; [           # Default packages installed system-wide
+    systemPackages = with pkgs; [
+      # Default packages installed system-wide
       vim
       git
-      curl 
-      git 
+      curl
+      git
       gcc
     ];
   };
@@ -102,19 +108,20 @@
     };
   };
 
-  services = {
-  };
+  services = { };
 
-  nix = {                                   # Nix Package Manager settings
-    settings ={
-      auto-optimise-store = true;           # Optimise syslinks
+  nix = {
+    # Nix Package Manager settings
+    settings = {
+      auto-optimise-store = true; # Optimise syslinks
     };
-    gc = {                                  # Automatic garbage collection
+    gc = {
+      # Automatic garbage collection
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 14d";
     };
-    package = pkgs.nixVersions.unstable;    # Enable nixFlakes on system
+    package = pkgs.nixVersions.unstable; # Enable nixFlakes on system
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -122,9 +129,10 @@
       keep-derivations      = true
     '';
   };
-  nixpkgs.config.allowUnfree = true;        # Allow proprietary software.
+  nixpkgs.config.allowUnfree = true; # Allow proprietary software.
 
-  system = {                                # NixOS settings
+  system = {
+    # NixOS settings
     #autoUpgrade = {                         # Allow auto update (not useful in flakes)
     #  enable = true;
     #  channel = "https://nixos.org/channels/nixos-unstable";

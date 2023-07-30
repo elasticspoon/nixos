@@ -10,10 +10,11 @@
 #       └─ ./services
 #           └─ default.nix
 #
-
-{ config, lib, pkgs, unstable, user, ... }:
-
-{ 
+{ config
+, pkgs
+, user
+, ...
+}: {
   imports = [
     ../home/i3
     ../home/tmux
@@ -22,8 +23,9 @@
     # Languages
     ../home/dev/javascript.nix
     ../home/dev/ruby.nix
+    ../home/dev/nix.nix
     ../home/programs/git.nix
-  ];                                   # Home Manager Modules
+  ]; # Home Manager Modules
 
   home = {
     username = "${user}";
@@ -33,6 +35,11 @@
       ripgrep
       coreutils
       fd
+
+      tree
+      vips
+
+      glib
 
       # Terminal
       # btop              # Resource Manager
@@ -56,9 +63,9 @@
       # okular            # PDF Viewer
       # p7zip             # Zip Encryption
       # rsync             # Syncer - $ rsync -r dir1/ dir2/
-      unzip             # Zip Files
+      unzip # Zip Files
       # unrar             # Rar Files
-      zip               # Zip
+      zip # Zip
 
       # General configuration
       #git              # Repositories
@@ -132,7 +139,7 @@
       #steam            # Games
       #simple-scan      # Scanning
       #sshpass          # Ansible dependency
-      # 
+      #
       # Laptop
       #cbatticon        # Battery Notifications
       #blueman          # Bluetooth
@@ -174,9 +181,9 @@
       };
     };
 
-    btop.enable = true;  # replacement of htop/nmon
-    exa.enable = true;   # A modern replacement for ‘ls’
-    jq.enable = true;    # A lightweight and flexible command-line JSON processor
+    btop.enable = true; # replacement of htop/nmon
+    exa.enable = true; # A modern replacement for ‘ls’
+    jq.enable = true; # A lightweight and flexible command-line JSON processor
     ssh.enable = true;
     aria2.enable = true;
     gpg.enable = true;

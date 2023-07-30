@@ -7,7 +7,6 @@ return {
         "htmlbeautifier",
         "css-lsp",
         "html-lsp",
-        "nil",
       })
     end,
   },

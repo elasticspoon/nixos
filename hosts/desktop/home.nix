@@ -16,7 +16,6 @@
 {
     imports = [
       ../../home/programs/browsers.nix
-      ../../home/programs/syncthing.nix
     ];
 
   home = {                                # Specific packages for desktop
@@ -50,15 +49,4 @@
     
 
   };
-  # services = {
-  #   syncthing = {
-  #     tray.enable = true;
-  #     enable = true;
-  #     extraOptions = [
-  #       "-no-browser"
-  #       "-home=/home/bandito/.config/syncthing"
-  #     ];
-  #   };
-  # };
-
 }

@@ -6,6 +6,7 @@
   
   imports = [
     ../dev/ruby.nix
+    ../dev/rust.nix
     ../programs/lazygit.nix
   ];
 
