@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{ ... }: {
   programs.kitty = {
     enable = true;
     theme = "Tokyo Night";
@@ -11,11 +8,10 @@
       size = 12;
     };
 
-    settings =
-      {
-        scrollback_lines = 10000;
-        enable_audio_bell = false;
-      };
+    settings = {
+      scrollback_lines = 10000;
+      enable_audio_bell = false;
+    };
   };
 
   home.sessionVariables = {

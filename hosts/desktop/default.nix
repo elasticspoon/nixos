@@ -65,6 +65,9 @@
 
   environment = {
     # Packages installed system wide
+    # variables = {
+    #   TERMINAL = "kitty";
+    # };
     sessionVariables = {
       MONITOR = "1080+1440";
     };

@@ -1,7 +1,5 @@
 { ... }: {
   imports = [
-    # ./common.nix
-    ./terminals.nix
     ./shell.nix
   ];
 
@@ -16,7 +14,6 @@
     # set default applications
     EDITOR = "vim";
     BROWSER = "firefox";
-    TERMINAL = "kitty";
 
     # enable scrolling in git diff
     DELTA_PAGER = "less -R";

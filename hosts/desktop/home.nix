@@ -13,6 +13,7 @@
 { pkgs, ... }: {
   imports = [
     ../../home/programs/browsers.nix
+    ../../home/programs/kitty.nix
   ];
 
   home = {
