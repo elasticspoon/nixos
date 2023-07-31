@@ -16,8 +16,11 @@ bind-key l select-pane -R
 bind-key -r C-h select-window -t :-
 bind-key -r C-l select-window -t :+
 
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi V send -X select-line
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+
 # start window numbers at 1 to match keyboard order with tmux window order
 set -g base-index 1
 set-window-option -g pane-base-index 1
@@ -56,8 +59,6 @@ set -g prefix C-space
 
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
-
-bind-key -r v run-shell "tmux send-keys :qa\nnvim\n"
 
 bind-key -r f run-shell "tmux neww ~/.config/tmux/scripts/tmux-sessionizer"
 bind-key -r i run-shell "tmux neww ~/.config/tmux/scripts/tmux-cht.sh"
