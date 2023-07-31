@@ -17,12 +17,13 @@
     (ruby_3_2.withPackages (ps:
       with ps; [
         jekyll
-        ffi
-        # webrick
-        terminal-table
-        # google-protobuf
-        # sass-embedded
-        jekyll-sass-converter
+        ruby-vips
       ])) # includes ruby_3_2 and gems
   ];
+  #   (ruby.withPackages (ps:
+  #     with ps; [
+  #       jekyll
+  #       ruby-vips
+  #     ])) # includes ruby_3_2 and gems
+  # ];
 }
