@@ -3,9 +3,10 @@
     enable = true;
     theme = "Tokyo Night";
     font = {
-      name = "JetBrainsMono Nerd Font";
+      # name = "JetBrainsMono Nerd Font";
+      name = "Ubuntu Mono Nerd Font";
       # use different font size on macOS
-      size = 12;
+      size = 13;
     };
 
     settings = {

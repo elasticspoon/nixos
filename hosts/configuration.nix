@@ -67,7 +67,7 @@
       noto-fonts-emoji
 
       # nerdfonts
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
     ];
 
     # user defined fonts
@@ -76,7 +76,7 @@
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Noto Color Emoji" ];
       sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      monospace = [ "Ubuntu Mono Nerd Font" "Noto Color Emoji" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
@@ -93,6 +93,7 @@
       curl
       git
       gcc
+      inetutils
     ];
   };
 
