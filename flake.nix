@@ -27,6 +27,7 @@
     };
 
     nur.url = "github:nix-community/NUR"; # Add "nur.nixosModules.nur" to the host modules NUR Packages
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
   outputs =
@@ -35,6 +36,7 @@
     , home-manager
     , nur
     , dslr
+    , alacritty-theme
     , ...
     }:
     let

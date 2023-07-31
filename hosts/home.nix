@@ -24,6 +24,8 @@
     ../home/dev/javascript.nix
     ../home/dev/ruby.nix
     ../home/dev/nix.nix
+
+    # ../home/programs/alacritty.nix
     ../home/programs/git.nix
   ]; # Home Manager Modules
 
