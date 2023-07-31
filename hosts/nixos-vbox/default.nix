@@ -44,6 +44,7 @@
     systemPackages = with pkgs; [
       # This is because some options need to be configured.
       pmutils
+      # bundler
       # plex
       # simple-scan
       # x11vnc
