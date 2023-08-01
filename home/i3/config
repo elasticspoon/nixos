@@ -126,16 +126,24 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+#
+#
 set $ws1 "1"
-set $ws2 "2"
+set $ws2 "2: "
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
+set $ws6 "6: "
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: "
+
+assign [class="(?i)firefox"] $ws2
+assign [class="discord"] $ws6
+
+# open a new empty_workspace
+bindsym $mod+n exec ~/.config/i3/scripts/empty_workspace.sh
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -197,5 +205,11 @@ bindsym $mod+r mode "resize"
 
 exec_always ~/.config/i3/scripts/desktop-screen.sh
 
+bar {
+    font pango:Roboto Mono for powerline,fontawesome 9
 
-## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
+    position bottom
+    mode dock
+    modifier None
+    status_command i3status
+}
