@@ -205,6 +205,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always ~/.config/i3/scripts/desktop-screen.sh
+exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper-r --bg-fill ~/.config/i3/wallpaper-l
 
 bar {
     font pango:Roboto Mono for powerline,fontawesome 9
