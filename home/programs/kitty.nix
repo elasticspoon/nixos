@@ -3,9 +3,9 @@
     enable = true;
     theme = "Tokyo Night";
     font = {
-      name = "Ubuntu Mono Nerd Font";
+      name = "DejaVu Sans Mono";
       # use different font size on macOS
-      size = 13;
+      size = 9;
     };
 
     settings = {

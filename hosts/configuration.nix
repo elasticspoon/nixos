@@ -68,6 +68,8 @@
 
       # nerdfonts
       (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
+
+      dejavu_fonts
     ];
 
     # user defined fonts
@@ -76,7 +78,7 @@
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Noto Color Emoji" ];
       sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "Ubuntu Mono Nerd Font" "Noto Color Emoji" ];
+      monospace = [ "DejaVu Sans Mono" "Noto Color Emoji" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
