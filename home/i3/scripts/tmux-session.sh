@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+# https://github.com/i3/i3/issues/3845
+unset I3SOCK
+
 # Get the name of the current i3 workspace
-# WORKSPACE_NAME=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused).name')
 WORKSPACE_NAME=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused).name')
 SESSION_NAME="terminal-$WORKSPACE_NAME"
 TERMINAL_DATA=$(i3-msg -t get_tree | jq '.. | select(.name? | tostring | startswith("'"$SESSION_NAME"'"))')

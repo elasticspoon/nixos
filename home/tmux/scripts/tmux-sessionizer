@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# https://github.com/i3/i3/issues/3845
+unset I3SOCK
+
 if [[ $# -eq 1 ]]; then
 	SELECTED=$1
 else
