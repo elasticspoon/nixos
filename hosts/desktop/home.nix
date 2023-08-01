@@ -31,17 +31,19 @@
       #     ispell            # Emacs spelling
       #
       #     # Imported in default or from modules
-      #     #discord          # Comms           # See overlay default.nix
+      discord # Comms           # See overlay default.nix
+      vlc
+      mupdf
       #     #ffmpeg           # Video Support
       #     #gphoto2          # Digital Photography
       #     #steam            # Game Launcher
       #
       #     # Packages I used in the past
       #     #darktable        # Raw Image Processing
-      #     #gimp             # Graphical Editor
+      gimp # Graphical Editor
       #     #inkscape         # Vector Graphical Editor
       #     #kdenlive         # Video Editor
-      #     #libreoffice      # Office Packages
+      libreoffice # Office Packages
       #     #shotcut          # Video Editor
       obsidian
     ];

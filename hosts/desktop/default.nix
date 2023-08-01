@@ -74,7 +74,6 @@
 
     systemPackages = with pkgs; [
       # This is because some options need to be configured.
-      discord
       pmutils
       # plex
       # simple-scan
