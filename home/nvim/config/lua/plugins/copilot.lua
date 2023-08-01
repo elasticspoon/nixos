@@ -6,6 +6,7 @@ return {
 				ruby = true,
 				javascript = true,
 				typescript = true,
+        nix = true,
 				["*"] = false,
 			},
 		},
