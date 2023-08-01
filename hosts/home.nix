@@ -94,13 +94,13 @@
       #
       # Xorg configuration
       #xclip            # Console Clipboard
-      #xorg.xev         # Input Viewer
+      xorg.xev # Input Viewer
       #xorg.xkill       # Kill Applications
       #xorg.xrandr      # Screen Settings
       #xterm            # Terminal
       #
       # Xorg home-manager
-      #flameshot        # Screenshot
+      flameshot # Screenshot
       #picom            # Compositer
       #sxhkd            # Shortcuts
       #
