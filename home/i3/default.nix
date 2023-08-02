@@ -2,6 +2,7 @@
   # wallpaper, binary file
   home.file = {
     ".config/i3/config".source = ./config;
+
     ".config/i3/wallpaper-l".source = ./wallpaper-l;
     ".config/i3/wallpaper-r".source = ./wallpaper-r;
 

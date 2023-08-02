@@ -54,4 +54,4 @@ alias ,jit='ruby jit.rb'
 alias ,path_e='export PATH="$PWD/bin:$PATH"'
 
 # misc
-alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_crap/random_movie.rb'
+# alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_crap/random_movie.rb'

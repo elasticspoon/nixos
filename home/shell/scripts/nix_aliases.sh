@@ -29,3 +29,5 @@ popd > /dev/null
 )'
 
 alias ,nix-man='man 5 configuration.nix'
+
+alias ,nix-store-item='echo "/nix/store/$(ls /nix/store/ | fzf)"'
