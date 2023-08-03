@@ -13,6 +13,10 @@ alias please='sudo $(fc -ln -1)'
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+# cat to bat if you got it
+if command -v bat >/dev/null 2>&1; then
+	alias cat='bat'
+fi
 #bash aliases
 alias ,scripts_setup='cd ~/Documents/Setup_Scripts'
 alias ,notes='cd ~/Documents/notes'

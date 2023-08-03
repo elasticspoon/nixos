@@ -19,7 +19,7 @@ fi
 
 # If the terminal exists, set the terminal_id and terminal_focused variables
 TERMINAL_NAME=$(echo "$TERMINAL_DATA" | jq -r '.title_format')
-TMUX_SESSION_NAME=${TERMINAL_NAME##*-}
+TMUX_SESSION_NAME=$(echo "$TERMINAL_NAME" | cut -d'-' -f3-)
 TERMINAL_ID=$(echo "$TERMINAL_DATA" | jq -r '.id')
 TERMINAL_FOCUSED=$(echo "$TERMINAL_DATA" | jq -r '.focused')
 TMUX_SESSION_EXISTS=$(tmux has-session -t "$TMUX_SESSION_NAME" 2>/dev/null)

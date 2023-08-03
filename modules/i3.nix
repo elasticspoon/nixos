@@ -32,7 +32,7 @@
         xbindkeys # bind keys to commands
         xorg.xbacklight # control screen brightness
         # xorg.xdpyinfo      # get screen information
-        # sysstat       # get system informationmod
+        # sysstat # get system informationmod
       ];
     };
 

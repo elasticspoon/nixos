@@ -7,6 +7,7 @@ return {
 				javascript = true,
 				typescript = true,
         nix = true,
+        bash = true,
 				["*"] = false,
 			},
 		},
