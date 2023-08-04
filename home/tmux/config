@@ -1,3 +1,4 @@
+# this file is such a mess
 # improve colors
 set -g default-terminal 'tmux-256color'
 
@@ -63,7 +64,7 @@ bind % split-window -h -c "#{pane_current_path}"
 
 bind-key -r f run-shell "tmux neww ~/.config/tmux/scripts/tmux-sessionizer"
 bind-key -r i run-shell "tmux neww ~/.config/tmux/scripts/tmux-cht.sh"
-# bind-key -r G run-shell "~/.local/bin/tmux-sessionizer ~/work/nrdp"
+bind-key -r H run-shell "~/.config/tmux/scripts/tmux-sessionizer ~/.dotfiles"
 
 #### key bindings ####
 # reload config file
@@ -79,6 +80,8 @@ bind-key -n C-S-Right swap-window -t +1 \; next-window
 
 set-option -g history-limit 64096
 
+# statusline
+set -g status on
 source ~/.config/tmux/statusline.conf
 
 ## TMUX NAVIGATOR
@@ -105,7 +108,12 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 bind C-l send-keys 'C-l'
 bind C-\\ send-keys 'C-\'
 
+# Faster resize-pane (kinda broken)
 bind-key -r Left resize-pane -L 10
 bind-key -r Right resize-pane -R 10
 bind-key -r Up resize-pane -U 10
 bind-key -r Down resize-pane -D 10
+
+
+set -g focus-events on
+set -g status-style bg=default
