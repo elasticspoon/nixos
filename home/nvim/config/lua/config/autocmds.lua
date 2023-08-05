@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.erb",
 	group = augroup,
+
 	command = "!htmlbeautifier %",
 })
 

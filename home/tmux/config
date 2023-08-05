@@ -29,12 +29,6 @@ set-window-option -g pane-base-index 1
 # renumber windows sequentially after closing any of them
 set -g renumber-windows on
 
-# soften status bar color from harsh green to light gray
-set -g status-style bg='#666666',fg='#aaaaaa'
-
-# remove administrative debris (session name, hostname, time) in status bar
-set -g status-left ''
-set -g status-right ''
 
 # increase scrollback lines
 set -g history-limit 10000
@@ -80,9 +74,26 @@ bind-key -n C-S-Right swap-window -t +1 \; next-window
 
 set-option -g history-limit 64096
 
+set -g status off
+set -g pane-border-style "fg=#1d1e2b"
+set -g pane-active-border-style "fg=#82aaff"
+
+set -g mode-style "fg=#1d1e2b,bg=#82aaff"
+
+set -g message-style "fg=#eee8d5,bg=#1d1e2b"
+# idk what command style is 
+set -g message-command-style "fg=#eee8d5,bg=#073642"
+
 # statusline
-set -g status on
-source ~/.config/tmux/statusline.conf
+# source ~/.config/tmux/statusline.conf
+
+# soften status bar color from harsh green to light gray
+# set -g status-style bg='#666666',fg='#aaaaaa'
+#
+# # remove administrative debris (session name, hostname, time) in status bar
+# set -g status-left ''
+# set -g status-right ''
+
 
 ## TMUX NAVIGATOR
 # Smart pane switching with awareness of Vim splits.
@@ -113,7 +124,3 @@ bind-key -r Left resize-pane -L 10
 bind-key -r Right resize-pane -R 10
 bind-key -r Up resize-pane -U 10
 bind-key -r Down resize-pane -D 10
-
-
-set -g focus-events on
-set -g status-style bg=default

@@ -12,7 +12,7 @@ return {
 			},
 		},
 		keys = {
--- stylua: ignore start
+      -- stylua: ignore start
       { "<M-]>", mode = "i", function() require("copilot.sugestion").next() end },
 			-- stylua: ignore end
 		},
