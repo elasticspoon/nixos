@@ -34,6 +34,7 @@
       discord # Comms           # See overlay default.nix
       vlc
       mupdf
+      # spotify
       #     #ffmpeg           # Video Support
       #     #gphoto2          # Digital Photography
       #     #steam            # Game Launcher
