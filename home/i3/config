@@ -137,7 +137,7 @@ bindsym $mod+a focus parent
 #
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3"
+set $ws3 "3: "
 set $ws4 "4"
 set $ws5 "5: "
 set $ws6 "6: "
@@ -145,20 +145,23 @@ set $ws7 "7: "
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10: "
+set $lmon HDMI-1
+set $rmon DP-2
 
 
 assign [class="chrome"] $ws1
 assign [class="(?i)firefox"] $ws1
 assign [class="kitty"] $ws2
+assign [class="obsidian"] $ws3
 assign [class="discord"] $ws5
 assign [class="qBittorrent"] $ws6
 assign [class="vlc"] $ws7
 
-workspace $ws1 output nonprimary
-workspace $ws2 output primary
-workspace $ws5 output nonprimary
-workspace $ws6 output nonprimary
-workspace $ws7 output primary
+workspace $ws1 output $lmon
+workspace $ws2 output $rmon
+workspace $ws5 output $lmon
+workspace $ws6 output $lmon
+workspace $ws7 output $rmon
 
 
 # open a new empty_workspace
@@ -194,8 +197,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # switch to next/prev ws
-bindsym $mod+$alt+j workspace prev_on_output
-bindsym $mod+$alt+k workspace next_on_output
+# bindsym $mod+$alt+j workspace prev_on_output
+# bindsym $mod+$alt+k workspace next_on_output
 
 # Program Binds
 bindsym $mod+d exec --no-startup-id firefox

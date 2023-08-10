@@ -59,3 +59,4 @@ alias ,path_e='export PATH="$PWD/bin:$PATH"'
 
 # misc
 # alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_crap/random_movie.rb'
+alias ,roll-movie='ruby -e '\''puts File.readlines("/home/bandito/Sync/Notes/Movie List.md")[2..].sample(1)'\'''
