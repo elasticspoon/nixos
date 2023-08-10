@@ -22,10 +22,12 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank into clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line into clipboard" })
 
+-- stylua: ignore start
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/tmux/scripts/tmux-sessionizer<CR>", { desc = "Change Tmux Session" })
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
-
+-- stylua: ignore end
+--
 -- Use tab for indenting in visual/select mode
 vim.keymap.set("x", "<Tab>", ">gv|", { desc = "Indent Left" })
 vim.keymap.set("x", "<S-Tab>", "<gv", { desc = "Indent Right" })
@@ -80,7 +82,6 @@ vim.keymap.set({ "n", "x" }, "<BS>", "%", { remap = true, desc = "Jump to Paren"
 vim.keymap.set("n", "<leader>e", ":Explore<cr>", { desc = "Show Current Dir" })
 vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 
-
 --move windows
 -- vim.keymap.set("n", "<C-Left>", "<C-w>R", { desc = "Move split left" })
 -- vim.keymap.set("n", "<C-Right>", "<C-w>r", { desc = "Move split right" })
@@ -88,6 +89,8 @@ vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 -- vim.keymap.set("n", "<C-Up>", "<C-w>R", { desc = "Move split up" })
 --
 
+-- stylua: ignore start
 -- Random Custom Snippets
-vim.keymap.set("n", "<leader>zbw", [=[:%s/>[ ]\?\[!WARNING\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-warning .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog WARNINGS" })
-vim.keymap.set("n", "<leader>zbn", [=[:%s/>[ ]\?\[!NOTE\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-note .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog NOTES" })
+vim.keymap.set( "n", "<leader>zbw", [=[:%s/>[ ]\?\[!WARNING\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-warning .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog WARNINGS" })
+vim.keymap.set( "n", "<leader>zbn", [=[:%s/>[ ]\?\[!NOTE\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-note .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog NOTES" })
+-- stylua: ignore end

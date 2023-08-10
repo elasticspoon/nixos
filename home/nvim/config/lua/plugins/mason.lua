@@ -1,23 +1,25 @@
+function getOsServers()
+	local serverInstalls = {
+		"shfmt",
+		"erb-lint",
+		"htmlbeautifier",
+		"css-lsp",
+		"html-lsp",
+	}
+
+	if os.getenv("NIX_PATH") == nil and os.getenv("NIX_STORE") == nil then
+		vim.list_extend(serverInstalls, {
+			"stylua",
+		})
+	end
+	return serverInstalls
+end
+
 return {
 	{
 		"williamboman/mason.nvim",
-		opts = function()
-			local serverInstalls = {
-				ensure_installed = {
-					"shfmt",
-					"erb-lint",
-					"htmlbeautifier",
-					"css-lsp",
-					"html-lsp",
-				},
-			}
-
-			if os.getenv("NIX_PATH") == nil then
-				vim.list_extend(serverInstalls.ensure_installed, {
-					"stylua",
-				})
-			end
-			return serverInstalls
-		end,
+		opts = {
+			ensure_installed = getOsServers(),
+		},
 	},
 }

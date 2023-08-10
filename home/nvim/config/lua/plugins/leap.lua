@@ -13,25 +13,11 @@ return {
 			end
 			return ret
 		end,
-		opts = { labeled_modes = "nx" },
+		opts = { labeled_modes = "nxv" },
 	},
 	{
 		"ggandor/leap.nvim",
 		enabled = true,
-		keys = {
-			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-		},
-		config = function(_, opts)
-			local leap = require("leap")
-			for k, v in pairs(opts) do
-				leap.opts[k] = v
-			end
-			leap.add_default_mappings(true)
-			vim.keymap.del({ "x", "o" }, "x")
-			vim.keymap.del({ "x", "o" }, "X")
-			vim.keymap.del({ "x", "o" }, "s")
-			vim.keymap.del({ "x", "o" }, "S")
-		end,
 	},
 
 	-- makes some plugins dot-repeatable like leap
