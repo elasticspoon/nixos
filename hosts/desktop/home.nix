@@ -47,6 +47,7 @@
       libreoffice # Office Packages
       #     #shotcut          # Video Editor
       obsidian
+      qbittorrent
     ];
   };
 }

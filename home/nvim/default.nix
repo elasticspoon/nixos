@@ -1,15 +1,9 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  
+{ pkgs, ... }: {
   imports = [
     ../dev/ruby.nix
     ../dev/rust.nix
     ../programs/lazygit.nix
   ];
-
 
   programs.neovim = {
     enable = true;
@@ -17,10 +11,14 @@
     vimAlias = true;
   };
 
-
   home = {
     file.".config/nvim" = {
       source = ./config;
+      # copy the scripts directory recursively
+      recursive = true;
+    };
+    file.".config/nvim/scipts" = {
+      source = ./scripts;
       # copy the scripts directory recursively
       recursive = true;
     };
@@ -29,5 +27,4 @@
       stylua
     ];
   };
-
 }

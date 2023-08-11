@@ -91,6 +91,5 @@ vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 
 -- stylua: ignore start
 -- Random Custom Snippets
-vim.keymap.set( "n", "<leader>zbw", [=[:%s/>[ ]\?\[!WARNING\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-warning .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog WARNINGS" })
-vim.keymap.set( "n", "<leader>zbn", [=[:%s/>[ ]\?\[!NOTE\][-]\? \(.*\)\(\%(\n>.*\)*\)/{: .box-note .ignore-blockquote }\r\r<!-- prettier-ignore -->\r>**\1**\\\\\2<CR>]=], { desc = "Format Blog NOTES" })
+vim.keymap.set( "n", "<leader>zb", "source ~/.config/nvim/scripts/blog_formatting.vim", { desc = "Format Blog" })
 -- stylua: ignore end

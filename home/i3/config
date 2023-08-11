@@ -204,6 +204,8 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 bindsym $mod+d exec --no-startup-id firefox
 
 
+# for_window [class="qBittorrent"] $float
+
 # # Obsidian
 # for_window [class="obsidian"] $float, $scratch
 # bindsym $mod+o $exe \
