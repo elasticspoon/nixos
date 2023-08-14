@@ -51,7 +51,8 @@
       # Video/Audio
       # feh               # Image Viewer
       # mpv               # Media Player
-      # pavucontrol       # Audio Control
+      # pulseaudio
+      pavucontrol # Audio Control
       #plex-media-player # Media Player
       # vlc               # Media Player
       # stremio           # Media Streamer
@@ -87,15 +88,15 @@
       #doom emacs       # Text Editor
       #libnotify        # Dependency for Dunst
       #neovim           # Text Editor
-      #rofi             # Menu
+      # rofi             # Menu
       #rofi-power-menu  # Power Menu
       #udiskie          # Auto Mounting
       #vim              # Text Editor
       #
       # Xorg configuration
-      #xclip            # Console Clipboard
+      xclip # Console Clipboard
       xorg.xev # Input Viewer
-      #xorg.xkill       # Kill Applications
+      xorg.xkill # Kill Applications
       #xorg.xrandr      # Screen Settings
       #xterm            # Terminal
       #

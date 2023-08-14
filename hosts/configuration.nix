@@ -18,10 +18,7 @@
 }: {
   imports = [
     ../modules/i3.nix
-    #   ../modules/system.nix
   ];
-  # (import ../modules/editors) ++          # Native doom emacs instead of nix-community flake
-  # (import ../modules/shell);
 
   users.users.${user} = {
     # System User
@@ -46,8 +43,6 @@
       BROWSER = "firefox";
     };
   };
-  # security.rtkit.enable = true;
-  # security.polkit.enable = true;
 
   #sound = {                                # Deprecated due to pipewire
   #  enable = true;
@@ -56,6 +51,21 @@
   #  };
   #};
 
+  security.rtkit.enable = true;
+  security.polkit.enable = true;
+
+  services = {
+    pipewire = {
+      # Sound
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+      jack.enable = true;
+    };
+  };
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -65,6 +75,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      font-awesome
 
       # nerdfonts
       (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
@@ -110,8 +121,6 @@
     };
   };
 
-  services = { };
-
   nix = {
     # Nix Package Manager settings
     settings = {
@@ -141,4 +150,8 @@
     #};
     stateVersion = "23.05";
   };
+
+  # Sound
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = false;
 }

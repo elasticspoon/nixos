@@ -17,7 +17,20 @@
         # Restore Neovim sessions
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
       }
-      tmuxPlugins.open
+      {
+        plugin = tmuxPlugins.tmux-thumbs;
+        extraConfig = ''
+          set -g @thumbs-key F
+          set -g @thumbs-command 'echo -n {} | xclip -sel clip && tmux display-message \"Copied {}\"'
+        '';
+      }
+      # {
+      #   plugin = tmuxPlugins.jump;
+      #   extraConfig = ''
+      #     set -g @jump-key 'j'
+      #   '';
+      # }
+      tmuxPlugins.fuzzback
       {
         plugin = tmuxPlugins.continuum;
         extraConfig = "set -g @continuum-restore 'on'";

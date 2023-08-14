@@ -11,12 +11,14 @@
 
 # Custom variables
 set $mod Mod4
+set $alt Mod1
 set $exe exec --no-startup-id
 set $launch exec_always --no-startup-id
 set $float floating enable, border none
 set $sticky sticky enable
 set $scratch move scratchpad
-set $toggle move scratchpad, scratchpad show
+# set $toggle move scratchpad, scratchpad show
+set $toggle exec --no-startup-id ~/.config/i3/scripts/i3-toggle.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -58,11 +60,14 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+Return exec ~/.config/i3/scripts/tmux-session.sh 
 bindsym $mod+Return exec ~/.config/i3/scripts/tmux-session.sh -h
 
-# kill focused window
+# kill current tmux session
 bindsym $mod+Ctrl+Shift+q exec --no-startup-id tmux kill-session
-# bindsym $mod+Shift+q exec ~/config/i3/tmux-quit.sh
-# bindsym $mod+Shift+q exec 'i3-msg kill'
+# kill focused window
 bindsym $mod+Shift+q kill
+# Killing selected window
+bindsym $mod+$alt+q --release $exe xkill
+
+
 
 # Screenshot
 bindcode 107 exec --no-startup-id flameshot gui
@@ -135,16 +140,16 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 #
 #
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3: "
 set $ws4 "4"
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7:  "
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10: "
+set $ws10 "10:  "
 set $lmon HDMI-1
 set $rmon DP-2
 
@@ -153,12 +158,14 @@ assign [class="chrome"] $ws1
 assign [class="(?i)firefox"] $ws1
 assign [class="kitty"] $ws2
 assign [class="obsidian"] $ws3
-assign [class="discord"] $ws5
-assign [class="qBittorrent"] $ws6
 assign [class="vlc"] $ws7
+
+for_window [class="pavucontrol"] $float
+for_window [class="thunar"] $float
 
 workspace $ws1 output $lmon
 workspace $ws2 output $rmon
+workspace $ws3 output $lmon
 workspace $ws5 output $lmon
 workspace $ws6 output $lmon
 workspace $ws7 output $rmon
@@ -203,14 +210,15 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 # Program Binds
 bindsym $mod+d exec --no-startup-id firefox
 
-
 # for_window [class="qBittorrent"] $float
 
-# # Obsidian
-# for_window [class="obsidian"] $float, $scratch
-# bindsym $mod+o $exe \
-#             i3-msg '[class="obsidian"] scratchpad show' || \
-#             pidof -q obsidian || obsidian
+# Discord
+for_window [class="discord"] $float, $scratch
+bindsym $mod+Shift+d $toggle -c "discord" || discord
+
+# Torrent
+for_window [class="qBittorrent"] $float, $scratch
+bindsym $mod+Shift+t $toggle -c "qBittorrent" || qbittorrent
 #
 # # Spotify
 # for_window [class="Spotify"] $float $scratch
@@ -258,7 +266,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/desktop-screen.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper-r --bg-fill ~/.config/i3/wallpaper-l
 
 bar {
-    font pango:Roboto Mono for powerline,fontawesome 9
+    font pango:Roboto Mono for powerline, FontAwesome 9
 
     position bottom
     mode hide

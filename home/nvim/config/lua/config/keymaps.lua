@@ -91,5 +91,5 @@ vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 
 -- stylua: ignore start
 -- Random Custom Snippets
-vim.keymap.set( "n", "<leader>zb", "source ~/.config/nvim/scripts/blog_formatting.vim", { desc = "Format Blog" })
+vim.keymap.set( "n", "<leader>Zb", "source ~/.config/nvim/scripts/blog_formatting.vim", { desc = "Format Blog" })
 -- stylua: ignore end
