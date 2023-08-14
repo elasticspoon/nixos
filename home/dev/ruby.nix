@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   home.file = {
     ".railsrc".source = ./config/railsrc;
-    # ".rubocop.yml".source = ./config/rubocop.yml;
-    # ".solargraph.yml".source = ./config/solargraph.yml;
+    ".rubocop.yml".source = ./config/rubocop.yml;
+    ".solargraph.yml".source = ./config/solargraph.yml;
     ".erb-lint.yml".source = ./config/erb-lint.yml;
     ".irbrc".source = ./config/irbrc;
   };
