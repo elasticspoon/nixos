@@ -25,23 +25,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	command = "!htmlbeautifier %",
 })
 
-vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-	callback = function()
-		vim.cmd("setlocal winhighlight=Normal:TelescopeResultsDiffDelete,NormalNC:Normal")
-		local timer = vim.loop.new_timer()
-		if timer == nil then
-			return
-		end
-		timer:start(
-			300,
-			0,
-			vim.schedule_wrap(function()
-				vim.cmd("setlocal winhighlight=Normal:Normal,NomralNC:NormalNC")
-			end)
-		)
-	end,
-})
-
+--TODO: fix this path
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "ruby",
 	group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }), -- also this is not /needed/ but it's good practice
@@ -49,6 +33,16 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.lsp.start({
 			name = "standard",
 			cmd = { "/nix/store/q6kdi6isxbl98091a92ipmm4s300mdb3-standard-1.30.1/bin/standardrb", "--lsp" },
+		})
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lua",
+	group = vim.api.nvim_create_augroup("LuaLsp", { clear = true }), -- also this is not /needed/ but it's good practice
+	callback = function()
+		vim.lsp.start({
+			name = "lua_ls",
+			cmd = { "/nix/store/bjwkgsqpgra2jrkdrgrz04frvp8zvjpi-lua-language-server-3.6.25/bin/lua-language-server" },
 		})
 	end,
 })

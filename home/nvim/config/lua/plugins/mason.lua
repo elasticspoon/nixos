@@ -22,17 +22,14 @@ return {
 			ensure_installed = getOsServers(),
 		},
 	},
-	-- {
-	-- 	"neovim/nvim-lspconfig",
-	-- 	opts = {
-	-- 		servers = {
-	-- 			standardrb = {
-	-- 				cmd = {
-	-- 					"/nix/store/q6kdi6isxbl98091a92ipmm4s300mdb3-standard-1.30.1/bin/standardrb",
-	-- 					"--lsp",
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				cmd = {
+					"/nix/store/bjwkgsqpgra2jrkdrgrz04frvp8zvjpi-lua-language-server-3.6.25/bin/lua-language-server",
+				},
+			},
+		},
+	},
 }

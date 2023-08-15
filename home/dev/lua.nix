@@ -1,16 +1,14 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   imports = [
     ../dev/rust.nix
   ];
 
-  programs = {
-  };
+  programs = { };
 
   home.packages = with pkgs; [
+    lua-language-server
   ];
-
 }
