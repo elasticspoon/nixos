@@ -15,12 +15,15 @@
         #   prefix + Ctrl-r - restore
         plugin = tmuxPlugins.resurrect;
         # Restore Neovim sessions
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        extraConfig = ''
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
       }
       {
         plugin = tmuxPlugins.tmux-thumbs;
         extraConfig = ''
-          set -g @thumbs-key F
+          set -g @thumbs-key Space
           set -g @thumbs-command 'echo -n {} | xclip -sel clip && tmux display-message \"Copied {}\"'
         '';
       }
