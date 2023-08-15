@@ -56,7 +56,7 @@ in
 {
   home.file = {
     ".railsrc".source = ./config/railsrc;
-    # ".config/rubocop/config.yml".source = ./config/rubocop.yml;
+    ".config/rubocop/config.yml".source = ./config/rubocop.yml;
     # ".config/rubocop/config.yml".text = ''
     #   require:
     #     - rubocop-performance
@@ -79,11 +79,7 @@ in
     (ruby_3_2.withPackages (ps:
       with ps; [
         standardrb
-        # standard-performance
-        # # solargraph-standardrb
-        # rubocop
-        # solargraph
-        # rubocop-performance
+        solargraph
       ])) # includes ruby_3_2 and gems
   ];
 }

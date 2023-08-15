@@ -26,8 +26,11 @@ return {
 	-- 	"neovim/nvim-lspconfig",
 	-- 	opts = {
 	-- 		servers = {
-	-- 			solargraph = {
-	-- 				cmd = { "solargraph", "stdio" },
+	-- 			standardrb = {
+	-- 				cmd = {
+	-- 					"/nix/store/q6kdi6isxbl98091a92ipmm4s300mdb3-standard-1.30.1/bin/standardrb",
+	-- 					"--lsp",
+	-- 				},
 	-- 			},
 	-- 		},
 	-- 	},

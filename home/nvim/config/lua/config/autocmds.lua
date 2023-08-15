@@ -41,3 +41,14 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 		)
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "ruby",
+	group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }), -- also this is not /needed/ but it's good practice
+	callback = function()
+		vim.lsp.start({
+			name = "standard",
+			cmd = { "/nix/store/q6kdi6isxbl98091a92ipmm4s300mdb3-standard-1.30.1/bin/standardrb", "--lsp" },
+		})
+	end,
+})
