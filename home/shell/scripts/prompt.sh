@@ -31,6 +31,10 @@ PS1_RED="\[$(
 )\]"
 PS1_RESET="\[$(tput sgr0)\]"
 
+# if [[ -z $ORIG_SHLVL ]]; then
+# 	export ORIG_SHLVL=$SHLVL
+# fi
+
 _in_git_repo() {
 	# Check the current dir is actually a repository
 	git status &>/dev/null || return 2
@@ -118,12 +122,11 @@ function _bash_prompt() {
 		local SCREEN_ESC=''
 	fi
 
-	TMUX_SHELL_LVL=4
-	if [[ $SHLVL -gt $TMUX_SHELL_LVL ]]; then
-		SHELL_LEVEL="${PS1_MAGENTA}shell"
-	else
-		SHELL_LEVEL="${PS1_WHITE}\\\$"
-	fi
+	# if [[ $SHLVL -gt $ORIG_SHLVL ]]; then
+	# 	SHELL_LEVEL="${PS1_MAGENTA}shell"
+	# else
+	SHELL_LEVEL="${PS1_WHITE}\\\$"
+	# fi
 	# finally, set PS1
 	# PS1="${PS1_MAGENTA}\u ${PS1_GREY}at${PS1_YELLOW} \h ${PS1_GREY}in${PS1_GREEN} \w ${EXIT_CODE_PROMPT} ${GIT_INFO}\
 	PS1="${PS1_GREEN}\u@\h:$(_curr_promt_idea)${PS1_CYAN}[ \w ]\n${SHELL_LEVEL} ${EXIT_CODE_PROMPT}${SCREEN_ESC}${PS1_RESET} "
