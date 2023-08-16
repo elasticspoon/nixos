@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs
+, config
+, ...
+}: {
   imports = [
     ../programs/fzf.nix
   ];
@@ -17,6 +20,7 @@
         # Restore Neovim sessions
         extraConfig = ''
           set -g @resurrect-processes '"~nvim -> ~/.config/bash/scripts/restore-nvim-session.sh"'
+          set -g @resurrect-delete-backup-after 5
         '';
       }
       {
@@ -35,7 +39,9 @@
       tmuxPlugins.fuzzback
       {
         plugin = tmuxPlugins.continuum;
-        extraConfig = "set -g @continuum-restore 'on'";
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+        '';
       }
     ];
 
@@ -52,6 +58,31 @@
       source = ./scripts;
       # copy the scripts directory recursively
       recursive = true;
+    };
+  };
+
+  systemd.user.services.tmux-resurrect = {
+    Unit = {
+      Description = "Run tmux_resurrect save script every 15 minutes";
+      OnFailure = "error@%n.service";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/sh ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh";
+    };
+  };
+  #
+  systemd.user.timers.tmux-resurrect = {
+    Unit = {
+      Description = "Run tmux_resurrect save script every 15 minutes";
+    };
+    Timer = {
+      OnBootSec = "5min";
+      OnUnitActiveSec = "15min";
+      Unit = "tmux-resurrect.service";
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
     };
   };
 }
