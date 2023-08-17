@@ -10,13 +10,13 @@
     enable = true;
     tmuxinator.enable = true;
 
-    plugins = with pkgs; [
+    plugins = with pkgs.tmuxPlugins; [
       {
         # https://github.com/tmux-plugins/tmux-resurrect
         # Manually persists tmux environment across system restarts.
         #   prefix + Ctrl-s - save
         #   prefix + Ctrl-r - restore
-        plugin = tmuxPlugins.resurrect;
+        plugin = resurrect;
         # Restore Neovim sessions
         extraConfig = ''
           set -g @resurrect-processes '"~nvim -> ~/.config/bash/scripts/restore-nvim-session.sh"'
@@ -24,7 +24,7 @@
         '';
       }
       {
-        plugin = tmuxPlugins.tmux-thumbs;
+        plugin = tmux-thumbs;
         extraConfig = ''
           set -g @thumbs-key Space
           set -g @thumbs-command 'echo -n {} | xclip -sel clip && tmux display-message \"Copied {}\"'
@@ -36,12 +36,12 @@
       #     set -g @jump-key 'j'
       #   '';
       # }
-      tmuxPlugins.fuzzback
+      fuzzback
       {
-        plugin = tmuxPlugins.continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
         '';
+        plugin = continuum;
       }
     ];
 
