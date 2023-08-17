@@ -4,6 +4,7 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "kvm-amd" ];
+    deviceSection = ''Option "TearFree" "true"'';
 
     desktopManager.xfce.enable = true;
     displayManager = {
