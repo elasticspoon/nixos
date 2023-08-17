@@ -61,25 +61,25 @@
     };
   };
 
-  systemd.user.services.tmux-resurrect = {
+  systemd.user.services.tmux-autosave = {
     Unit = {
       Description = "Run tmux_resurrect save script every 15 minutes";
       OnFailure = "error@%n.service";
     };
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/sh ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh";
+      ExecStart = "${pkgs.bash}/bin/sh ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh quiet";
     };
   };
   #
-  systemd.user.timers.tmux-resurrect = {
+  systemd.user.timers.tmux-autosave = {
     Unit = {
       Description = "Run tmux_resurrect save script every 15 minutes";
     };
     Timer = {
       OnBootSec = "5min";
       OnUnitActiveSec = "15min";
-      Unit = "tmux-resurrect.service";
+      Unit = "tmux-autosave.service";
     };
     Install = {
       WantedBy = [ "timers.target" ];
