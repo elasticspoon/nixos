@@ -18,12 +18,14 @@
 }: {
   imports = [
     ../modules/i3.nix
+    # ../modules/postgres.nix
+    # ../modules/docker.nix
   ];
 
   users.users.${user} = {
     # System User
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" "kvm" "libvirtd" "plex" ];
+    extraGroups = [ "wheel" "video" "docker" "audio" "camera" "networkmanager" "lp" "scanner" "kvm" "libvirtd" "plex" ];
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
 
