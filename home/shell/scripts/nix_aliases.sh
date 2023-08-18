@@ -28,6 +28,11 @@ sudo nixos-rebuild switch --flake .#
 popd > /dev/null
 )'
 
-alias ,nix-man='man 5 configuration.nix'
-
-alias ,nix-store-item='echo "/nix/store/$(ls /nix/store/ | fzf)"'
+alias ,nix-store='(
+selected_option="/nix/store/$(ls /nix/store/ | fzf)"
+if [ -n "$selected_option" ]; then
+  # Copy the selected option to the clipboard using xclip
+  echo -n "$selected_option" | xclip -selection clipboard
+  echo "Copied $selected_option to clipboard"
+fi
+)'
