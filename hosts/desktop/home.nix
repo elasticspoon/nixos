@@ -18,7 +18,6 @@
     ../../home/programs/ranger.nix
 
     # Services
-    ../../home/services/ping-private_events.nix
     ../../home/services/ping-projects.nix
     ../../home/services/dunst.nix
   ];
