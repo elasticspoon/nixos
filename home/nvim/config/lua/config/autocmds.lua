@@ -45,5 +45,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			name = "lua_ls",
 			cmd = { "/nix/store/bjwkgsqpgra2jrkdrgrz04frvp8zvjpi-lua-language-server-3.6.25/bin/lua-language-server" },
 		})
+	pattern = "netrw",
+	group = vim.api.nvim_create_augroup("close_with_q_extra", { clear = true }),
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", function()
+			require("mini.bufremove").delete(0, false)
+		end, { buffer = event.buf, silent = true })
 	end,
 })
