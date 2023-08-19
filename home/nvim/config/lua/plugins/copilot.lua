@@ -8,6 +8,7 @@ return {
 				typescript = true,
 				nix = true,
 				bash = true,
+				sh = true,
 				["*"] = false,
 			},
 		},
