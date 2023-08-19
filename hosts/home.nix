@@ -27,6 +27,7 @@
 
     # ../home/programs/alacritty.nix
     ../home/programs/git.nix
+    ../home/programs/ranger.nix
   ]; # Home Manager Modules
 
   home = {
@@ -37,16 +38,15 @@
       ripgrep
       coreutils
       fd
-
       tree
-      vips
 
+      # Libraries
+      vips
       glib
 
       # Terminal
-      # btop              # Resource Manager
-      # ranger            # File Manager
-      # tldr              # Helper
+      # ranger # File Manager
+      tldr # Helper
 
       # Video/Audio
       # feh               # Image Viewer

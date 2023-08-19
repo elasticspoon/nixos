@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}: {
+{ pkgs, ... }: {
   imports = [
     ../programs/fzf.nix
   ];

@@ -14,6 +14,7 @@
   imports = [
     ../../home/programs/browsers.nix
     ../../home/programs/kitty.nix
+    ../../home/services/ping-private_events.nix
   ];
 
   home = {
@@ -30,10 +31,10 @@
       #     gmtp              # Used for mounting gopro
       #     ispell            # Emacs spelling
       #
-      #     # Imported in default or from modules
       discord # Comms           # See overlay default.nix
-      vlc
-      mupdf
+      vlc # Media Player
+      mupdf # PDF Reader
+      btop # System Monitor
       # spotify
       #     #ffmpeg           # Video Support
       #     #gphoto2          # Digital Photography

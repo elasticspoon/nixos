@@ -1,18 +1,14 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
+{ pkgs, ... }: {
+  imports = [
+    ../../modules/system.nix
+    ../../modules/i3.nix
 
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [
-      ../../modules/system.nix
-      ../../modules/i3.nix
-
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader = {
@@ -35,8 +31,7 @@
 
   environment.sessionVariables = {
     MONITOR = "1080+1440";
-    };
-
+  };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -52,7 +47,7 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
+    #   useXkbConfig = true; # use xkbOptions in tty.
   };
 
   # Configure keymap in X11
@@ -73,6 +68,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
-
