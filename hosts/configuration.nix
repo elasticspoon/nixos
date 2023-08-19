@@ -18,8 +18,6 @@
 }: {
   imports = [
     ../modules/i3.nix
-    ../modules/postgres.nix
-    # ../modules/docker.nix
   ];
 
   users.users.${user} = {

@@ -20,14 +20,17 @@
     ../home/tmux
     ../home/shell
     ../home/nvim
+
     # Languages
     ../home/dev/javascript.nix
     ../home/dev/ruby.nix
     ../home/dev/nix.nix
 
+    # Programs
     # ../home/programs/alacritty.nix
     ../home/programs/git.nix
-    ../home/programs/ranger.nix
+
+    # Services
   ]; # Home Manager Modules
 
   home = {
@@ -84,9 +87,9 @@
       #
       # General home-manager
       #alacritty        # Terminal Emulator
-      #dunst            # Notifications
+      # dunst # Notifications
       #doom emacs       # Text Editor
-      #libnotify        # Dependency for Dunst
+      # libnotify # Dependency for Dunst
       #neovim           # Text Editor
       # rofi             # Menu
       #rofi-power-menu  # Power Menu

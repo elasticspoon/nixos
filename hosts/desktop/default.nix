@@ -18,11 +18,13 @@
 #           └─ default.nix
 #
 { pkgs, ... }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ../../modules/syncthing.nix
-  ];
+  imports =
+    [
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ../../modules/syncthing.nix
+    ]
+    ++ (import ../../services);
 
   boot.loader = {
     systemd-boot.enable = false;
