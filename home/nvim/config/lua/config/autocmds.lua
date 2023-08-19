@@ -37,14 +37,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -- 		})
 -- 	end,
 -- })
+
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "lua",
-	group = vim.api.nvim_create_augroup("LuaLsp", { clear = true }), -- also this is not /needed/ but it's good practice
-	callback = function()
-		vim.lsp.start({
-			name = "lua_ls",
-			cmd = { "/nix/store/bjwkgsqpgra2jrkdrgrz04frvp8zvjpi-lua-language-server-3.6.25/bin/lua-language-server" },
-		})
 	pattern = "netrw",
 	group = vim.api.nvim_create_augroup("close_with_q_extra", { clear = true }),
 	callback = function(event)
