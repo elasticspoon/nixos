@@ -209,6 +209,7 @@ bindsym $alt+Shift+Tab move container to workspace back_and_forth; workspace bac
 
 # Program Binds
 bindsym $mod+d exec --no-startup-id firefox
+bindsym $mod+Shift+o exec --no-startup-id obsidian
 
 # for_window [class="qBittorrent"] $float
 
