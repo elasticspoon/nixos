@@ -22,7 +22,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/syncthing.nix
     ]
     ++ (import ../../services);
 
