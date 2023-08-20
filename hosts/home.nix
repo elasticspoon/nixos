@@ -188,11 +188,23 @@
     };
 
     btop.enable = true; # replacement of htop/nmon
-    exa.enable = true; # A modern replacement for ‘ls’
+    # exa.enable = true; # A modern replacement for ‘ls’
     jq.enable = true; # A lightweight and flexible command-line JSON processor
-    ssh.enable = true;
     aria2.enable = true;
     gpg.enable = true;
+
+    ssh = {
+      enable = true;
+
+      extraConfig = builtins.readFile ../.secrets/ssh.config;
+    };
+  };
+
+  services = {
+    gpg-agent = {
+      enable = true;
+      pinentryFlavor = "qt";
+    };
   };
 
   xsession.enable = true; # Otherwise homesession vars break
