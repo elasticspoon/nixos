@@ -29,4 +29,18 @@ in
       ExecStart = ''${pkgs.bash}/bin/sh ${pingUrlScript} ${urlsList}'';
     };
   };
+  #
+  systemd.user.timers.ping-projects = {
+    Unit = {
+      Description = "Ping URLS to keep projects alive";
+    };
+    Timer = {
+      OnCalendar = "*-*-01,04,08,12,16,20,24,28,31 00:00:00";
+      Persistent = true;
+      Unit = "ping-projects.service";
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }
