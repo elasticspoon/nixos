@@ -4,7 +4,7 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "kvm-amd" ];
-    deviceSection = ''Option "TearFree" "true"'';
+    # deviceSection = ''Option "TearFree" "true"'';
 
     desktopManager.xfce.enable = true;
     displayManager = {
@@ -40,6 +40,11 @@
     # Configure keymap in X11
     layout = "us";
     xkbVariant = "";
+  };
+
+  services.picom = {
+    enable = true;
+    vSync = true;
   };
 
   # services.xserver.enable = true;

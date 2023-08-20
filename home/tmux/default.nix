@@ -61,7 +61,6 @@
   systemd.user.services.tmux-autosave = {
     Unit = {
       Description = "Run tmux_resurrect save script every 15 minutes";
-      OnFailure = "error@%n.service";
     };
     Service = {
       Type = "oneshot";
