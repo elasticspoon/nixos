@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.config/bash/scripts/git-prompt.sh
+
 # colors
 PS1_GREY="\[$(
 	tput bold
