@@ -1,31 +1,12 @@
 return {
 	{
-		"tpope/vim-rails",
-		cmd = {
-			"Eview",
-			"Econtroller",
-			"Emodel",
-			"Smodel",
-			"Sview",
-			"Scontroller",
-			"Vmodel",
-			"Vview",
-			"Vcontroller",
-			"Tmodel",
-			"Tview",
-			"Tcontroller",
-			"Rails",
-			"Generate",
-			"Runner",
-			"Extract",
-		},
-	},
-	{
 		"mrjones2014/nvim-ts-rainbow",
 	},
+	{ "tpope/vim-fugitive" },
 	{
 		"m4xshen/hardtime.nvim",
 		opts = {
+			allow_different_key = true,
 			disabled_keys = {
 				["<UP>"] = { "n", "x", "v" },
 				["<DOWN>"] = { "n", "x", "v" },
