@@ -1,0 +1,13 @@
+[color]
+	ui = "auto"
+
+[init]
+	defaultBranch = "main"
+	templatedir = "~/.config/git/template"
+
+[pull]
+	rebase = "true"
+
+[user]
+	email = "quesadillaman@gmail.com"
+	name = "YuriBocharov"

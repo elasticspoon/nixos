@@ -20,6 +20,7 @@
     ../home/tmux
     ../home/shell
     ../home/nvim
+    ../home/git
 
     # Languages
     ../home/dev/javascript.nix
@@ -28,7 +29,6 @@
 
     # Programs
     # ../home/programs/alacritty.nix
-    ../home/programs/git.nix
 
     # Services
   ]; # Home Manager Modules

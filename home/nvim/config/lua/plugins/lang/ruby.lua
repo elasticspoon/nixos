@@ -3,6 +3,7 @@
 return {
 	{ "tpope/vim-bundler" },
 	{ "tpope/vim-rake" },
+	{ "vim-ruby/vim-ruby" },
 	{
 		"tpope/vim-rails",
 		cmd = {
