@@ -26,6 +26,7 @@
     ../home/dev/javascript.nix
     ../home/dev/ruby.nix
     ../home/dev/nix.nix
+    ../home/dev/go.nix
 
     # Programs
     # ../home/programs/alacritty.nix

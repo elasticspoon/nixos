@@ -9,6 +9,7 @@ return {
 				nix = true,
 				bash = true,
 				sh = true,
+				go = true,
 				["*"] = false,
 			},
 		},

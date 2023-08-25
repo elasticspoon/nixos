@@ -19,6 +19,7 @@ set $sticky sticky enable
 set $scratch move scratchpad
 # set $toggle move scratchpad, scratchpad show
 set $toggle exec --no-startup-id ~/.config/i3/scripts/i3-toggle.sh
+set $open_in_ws exec --no-startup-id ~/.config/i3/scripts/i3-open-in-workspace.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -154,8 +155,6 @@ set $lmon HDMI-1
 set $rmon DP-2
 
 
-assign [class="chrome"] $ws1
-assign [class="(?i)firefox"] $ws1
 assign [class="kitty"] $ws2
 assign [class="obsidian"] $ws3
 assign [class="vlc"] $ws7
@@ -208,7 +207,7 @@ bindsym $alt+Shift+Tab move container to workspace back_and_forth; workspace bac
 # bindsym $mod+$alt+k workspace next_on_output
 
 # Program Binds
-bindsym $mod+d exec --no-startup-id firefox
+bindsym $mod+d $open_in_ws firefox $ws1
 bindsym $mod+Shift+o exec --no-startup-id obsidian
 
 # for_window [class="qBittorrent"] $float

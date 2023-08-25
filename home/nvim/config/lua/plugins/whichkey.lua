@@ -5,7 +5,6 @@ return {
 		opts = {
 			defaults = {
 				-- custom macros
-				["<leader>s"] = { name = "+surround" },
 				["<leader>Z"] = { name = "+custom binds" },
 			},
 		},

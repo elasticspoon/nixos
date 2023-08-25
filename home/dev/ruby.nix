@@ -6,7 +6,9 @@ in
   #TODO: add to fix this to work across nix and ubuntu
   home.file = {
     ".railsrc".source = ./config/railsrc;
+    ".bundle/config".source = ./config/bundle.config;
     # ".config/rubocop/config.yml".source = ./config/rubocop.yml;
+    ".config/rubocop/config.yml".text = with standardrb.gems; ''
       require:
         - rubocop-performance
 

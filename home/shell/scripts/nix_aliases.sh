@@ -3,6 +3,7 @@ alias ,nix-update='(
 pushd ~/.dotfiles > /dev/null
 nix flake update
 popd > /dev/null
+notify-send "Nix Update" "Nix flake update has completed."
 )'
 
 alias ,nix-build='(
@@ -11,6 +12,7 @@ git add .
 nixos-rebuild build --flake .#
 sudo ./result/bin/switch-to-configuration dry-activate --show-trace
 popd > /dev/null
+notify-send "Nix Build" "Nix flake build has completed."
 )'
 
 alias ,nix-test='(
@@ -19,6 +21,7 @@ git add .
 nixos-rebuild build --flake .#
 sudo ./result/bin/switch-to-configuration test --show-trace
 popd > /dev/null
+notify-send "Nix Rebuild" "Nix flake rebuild has completed."
 )'
 
 alias ,nix-switch='(
@@ -26,6 +29,7 @@ pushd ~/.dotfiles > /dev/null
 git add .
 sudo nixos-rebuild switch --flake .#
 popd > /dev/null
+notify-send "Nix Rebuild" "Nix flake rebuild has completed."
 )'
 
 alias ,nix-store='(

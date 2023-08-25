@@ -64,7 +64,10 @@
     };
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/sh ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh quiet";
+      Environment = [
+        "RES_SAVE_PATH=${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh"
+      ];
+      ExecStart = "${pkgs.bash}/bin/sh ${./scripts/tmux-save.sh}";
     };
   };
   #

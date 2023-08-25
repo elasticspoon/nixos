@@ -124,11 +124,11 @@ function _bash_prompt() {
 		local SCREEN_ESC=''
 	fi
 
-	# if [[ $SHLVL -gt $ORIG_SHLVL ]]; then
-	# 	SHELL_LEVEL="${PS1_MAGENTA}shell"
-	# else
-	SHELL_LEVEL="${PS1_WHITE}\\\$"
-	# fi
+	if [ "$NIX_SHELL" ]; then
+		SHELL_LEVEL="${PS1_MAGENTA}shell"
+	else
+		SHELL_LEVEL="${PS1_WHITE}\\\$"
+	fi
 	# finally, set PS1
 	# PS1="${PS1_MAGENTA}\u ${PS1_GREY}at${PS1_YELLOW} \h ${PS1_GREY}in${PS1_GREEN} \w ${EXIT_CODE_PROMPT} ${GIT_INFO}\
 	PS1="${PS1_GREEN}\u@\h:$(_curr_promt_idea)${PS1_CYAN}[ \w ]\n${SHELL_LEVEL} ${EXIT_CODE_PROMPT}${SCREEN_ESC}${PS1_RESET} "

@@ -4,18 +4,6 @@ return {
 	},
 	{ "tpope/vim-fugitive" },
 	{
-		"m4xshen/hardtime.nvim",
-		opts = {
-			allow_different_key = true,
-			disabled_keys = {
-				["<UP>"] = { "n", "x", "v" },
-				["<DOWN>"] = { "n", "x", "v" },
-				["<LEFT>"] = { "n", "x", "v" },
-				["<RIGHT>"] = { "n", "x", "v" },
-			},
-		},
-	},
-	{
 		"sindrets/diffview.nvim",
 		event = "BufRead",
 	},

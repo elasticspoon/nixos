@@ -61,6 +61,8 @@ alias ,path_e='export PATH="$PWD/bin:$PATH"'
 # alias ,roll-movie='cd ~/Documents/notes; git pull; ruby ~/Documents/personal_crap/random_movie.rb'
 alias ,roll-movie='ruby -e '\''puts File.readlines("/home/bandito/Sync/Notes/Movie List.md")[2..].sample(1)'\'''
 
+alias ,copy-post='~/Projects/misc-scripts/copy-blog-post.sh'
+
 # Pipes all non globbed hosts in ssh confit to fzf and ssh's into the selected host
 function ssh-list {
 	SELECTED="$(grep -P "Host ([^*]+)$" "$HOME/.ssh/config" | sed -E 's/(.*Host )//' | fzf)"
@@ -68,3 +70,5 @@ function ssh-list {
 		ssh "$SELECTED"
 	fi
 }
+
+alias jit="bundle exec bin/jit"

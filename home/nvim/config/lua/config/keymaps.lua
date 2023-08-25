@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line into clipboard" })
 
 -- stylua: ignore start
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/tmux/scripts/tmux-sessionizer<CR>", { desc = "Change Tmux Session" })
--- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
 -- stylua: ignore end
 --
@@ -50,13 +50,16 @@ vim.keymap.set({ "n", "x", "o" }, "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc =
 -- stylua: ignore start
 vim.keymap.set("n", "<leader>up", function() require("copilot.suggestion").toggle_auto_trigger() end, { desc = "Toggle Copilot Suggestion Autofill" })
 
-vim.keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", { expr = true, desc = "insert line below", })
-vim.keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", { expr = true, desc = "insert line above", })
+-- vim.keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", { expr = true, desc = "insert line below", })
+-- vim.keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", { expr = true, desc = "insert line above", })
 -- stylua: ignore end
 
 -- Paste non-linewise text above or below current line, see https://stackoverflow.com/a/1346777/6064933
 vim.keymap.set("n", "<leader>p", "m`o<ESC>p``", { desc = "paste below current line" })
 vim.keymap.set("n", "<leader>P", "m`O<ESC>p``", { desc = "paste above current line" })
+
+-- Don't yank on visual paste
+vim.keymap.set({ "o", "x" }, "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<C-V>", [["+p"]], { desc = "paste from clipboard" })
 -- magic search with /
@@ -68,16 +71,9 @@ vim.keymap.set("n", "X", '"_X')
 vim.keymap.set("v", "x", '"_x')
 vim.keymap.set("v", "X", '"_X')
 
--- Don't yank on visual paste
-vim.keymap.set("v", "p", '"_dP')
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
 -- Start new line from any cursor position in insert-mode
 -- cant get to work
 -- vim.keymap.set("i", "<S-CR>", "<C-o>o", { desc = "Start Newline" })
-
--- Use backspace key for matching parens
-vim.keymap.set({ "n", "x" }, "<BS>", "%", { remap = true, desc = "Jump to Paren" })
 
 vim.keymap.set("n", "<leader>e", ":Explore<cr>", { desc = "Show Current Dir" })
 vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
@@ -91,5 +87,9 @@ vim.keymap.set("n", "<leader>E", ":e .<cr>", { desc = "Show Root Dir" })
 
 -- stylua: ignore start
 -- Random Custom Snippets
-vim.keymap.set( "n", "<leader>Zb", "source ~/.config/nvim/scripts/blog_formatting.vim", { desc = "Format Blog" })
+vim.keymap.set( "n", "<leader>Zb", ":source ~/.config/nvim/scipts/blog_formatting.vim<cr>", { desc = "Format Blog" })
 -- stylua: ignore end
+
+vim.keymap.set("i", "<M-]>", function()
+	require("copilot.sugestion").next()
+end)
