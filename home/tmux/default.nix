@@ -5,7 +5,6 @@
 
   programs.tmux = {
     enable = true;
-    tmuxinator.enable = true;
 
     plugins = with pkgs.tmuxPlugins; [
       {
@@ -34,12 +33,6 @@
       #   '';
       # }
       fuzzback
-      {
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-        '';
-        plugin = continuum;
-      }
     ];
 
     extraConfig = builtins.readFile ./config;

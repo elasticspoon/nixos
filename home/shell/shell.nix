@@ -1,8 +1,13 @@
-{ ... }:
-{
+{ ... }: {
   # programs.bash = {
   #   enable = true;
   # };
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 
   home.file = {
     ".bashrc".source = ./config/bashrc;

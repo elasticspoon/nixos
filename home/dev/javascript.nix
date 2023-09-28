@@ -1,9 +1,11 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    yarn
     nodejs
+    typescript
     nodePackages.npm
     nodePackages.pnpm
-    yarn
     nodePackages.node2nix
+    nodePackages.vsc-leetcode-cli
   ];
 }

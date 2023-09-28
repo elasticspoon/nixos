@@ -1,10 +1,11 @@
 return {
 	{
 		"echasnovski/mini.pairs",
-		version = false,
-		opts = {
-			['"'] = {},
-			["'"] = {},
-		},
+		disable = true,
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {}, -- this is equalent to setup({}) function
 	},
 }

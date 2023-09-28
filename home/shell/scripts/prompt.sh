@@ -108,6 +108,8 @@ _curr_promt_idea() {
 
 # function to set PS1
 function _bash_prompt() {
+	# history stuff
+	history -a
 	# git info
 	if [[ $? == 0 ]]; then
 		local EXIT_CODE_PROMPT="${PS1_GREEN}>"

@@ -142,3 +142,10 @@ bind-key -r Left resize-pane -L 10
 bind-key -r Right resize-pane -R 10
 bind-key -r Up resize-pane -U 10
 bind-key -r Down resize-pane -D 10
+
+
+
+run-shell ~/Projects/tmux-resurrect/resurrect.tmux
+
+set -g @resurrect-processes '"~nvim -> ~/.config/bash/scripts/restore-nvim-session.sh"'
+set -g @resurrect-delete-backup-after 5
