@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   keepAliveUrls = [
-    "http://35.243.197.55"
+    "http://34.148.59.37"
     "https://flight-booker-gogr.onrender.com/"
   ];
   urlsList = builtins.concatStringsSep " " keepAliveUrls;
