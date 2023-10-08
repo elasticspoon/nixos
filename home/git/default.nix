@@ -3,9 +3,11 @@
     gh
     git-crypt
     git
+    lazygit
   ];
 
   home.file = {
+    ".config/lazygit/config.yml".source = ./lazygit-config.yml;
     ".config/git/config".source = ./config;
     ".config/git/template/hooks" = {
       source = ./hooks;
