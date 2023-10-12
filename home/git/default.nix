@@ -4,6 +4,8 @@
     git-crypt
     git
     lazygit
+
+    shellcheck # not actually git related
   ];
 
   home.file = {

@@ -2,7 +2,7 @@
 WORKSPACES_JSON=$(i3-msg -t get_workspaces)
 
 # Extract and print the names of active workspaces
-CURRENT_WORKSPACES=$(echo "$WORKSPACES_JSON" | jq -r '.[] |  .name')
+# CURRENT_WORKSPACES=$(echo "$WORKSPACES_JSON" | jq -r '.[] |  .name')
 
 # Create a directory with the current timestamp
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")

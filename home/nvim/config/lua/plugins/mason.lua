@@ -14,6 +14,7 @@ local function getOsServers()
 		"htmlbeautifier",
 		"css-lsp",
 		"html-lsp",
+		"bash-language-server",
 	}
 
 	if os.getenv("NIX_PATH") == nil and os.getenv("NIX_STORE") == nil then
