@@ -13,8 +13,7 @@
 { pkgs, ... }: {
   imports = [
     # Programs
-    ../../home/programs/browsers.nix
-    ../../home/programs/kitty.nix
+    ../../home/programs
     ../../home/programs/ranger.nix
 
     # Services

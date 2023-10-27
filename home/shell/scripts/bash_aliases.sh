@@ -71,4 +71,6 @@ function ssh-list {
 	fi
 }
 
-alias jit="bundle exec bin/jit"
+if [ -f ~/.config/bash/scripts/flash-glove80.sh ]; then
+	alias ,flash="~/.config/bash/scripts/flash-glove80.sh"
+fi

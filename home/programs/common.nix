@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # archives
     # zip
     unzip
     # p7zip
+
+    # chm
+    xchm
 
     # utils
     ripgrep
@@ -25,7 +28,6 @@
     # cloud native
     # docker-compose
     # kubectl
-
 
     nodejs
     nodePackages.npm
@@ -53,21 +55,21 @@
       };
     };
 
-    btop.enable = true;  # replacement of htop/nmon
-    exa.enable = true;   # A modern replacement for ‘ls’
-    jq.enable = true;    # A lightweight and flexible command-line JSON processor
+    btop.enable = true; # replacement of htop/nmon
+    exa.enable = true; # A modern replacement for ‘ls’
+    jq.enable = true; # A lightweight and flexible command-line JSON processor
     ssh.enable = true;
     aria2.enable = true;
     gpg.enable = true;
 
     # skim = {
-      # enable = true;
-      # enableZshIntegration = true;
-      # defaultCommand = "rg --files --hidden";
-      # changeDirWidgetOptions = [
-        # "--preview 'exa --icons --git --color always -T -L 3 {} | head -200'"
-        # "--exact"
-      # ];
+    # enable = true;
+    # enableZshIntegration = true;
+    # defaultCommand = "rg --files --hidden";
+    # changeDirWidgetOptions = [
+    # "--preview 'exa --icons --git --color always -T -L 3 {} | head -200'"
+    # "--exact"
+    # ];
     # };
   };
 

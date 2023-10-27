@@ -22,6 +22,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/bluetooth.nix
+      ../../services/bluetoothspoof.nix
     ]
     ++ (import ../../services);
 

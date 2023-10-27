@@ -1,0 +1,13 @@
+[Unit]
+After=default.target
+Description=spoof the bluetooth mac-address
+
+[Service]
+Environment="LOCALE_ARCHIVE=/nix/store/pi8b83pxcjjywas1aqdq9gsjp4l8sqrl-glibc-locales-2.37-8/lib/locale/locale-archive"
+Environment="PATH=/nix/store/hpyykcygpzvrvfg8hx1830f8lh0gp419-bluez-5.66/bin:/nix/store/ps731yj4a67nlm1mr9rc1y6jal21iaik-coreutils-9.3/bin:/nix/store/mikgfadmcvvshjibhcxa5nm0knisd8m3-findutils-4.9.0/bin:/nix/store/si25bpbx17wc35b5fz29jmasc33d1izg-gnugrep-3.11/bin:/nix/store/cf16ff3qmsjl30hs7bpsx7r7kayslv9l-gnused-4.9/bin:/nix/store/sabybrrms75zv55a3nx2qsfyp9h5jbr3-systemd-253.6/bin:/nix/store/hpyykcygpzvrvfg8hx1830f8lh0gp419-bluez-5.66/sbin:/nix/store/ps731yj4a67nlm1mr9rc1y6ja l21iaik-coreutils-9.3/sbin:/nix/store/mikgfadmcvvshjibhcxa5nm0knisd8m3-findutils-4.9.0/sbin:/nix/store/si25bpbx17wc35b5fz29jmasc33d1izg-gnugrep-3.11/sbin:/nix/store/cf16ff3qmsjl30hs7bpsx7r7kayslv9l-gnused-4.9/sbin:/nix/store/sabybrrms75zv55a3nx2qsfyp9h5jbr3-systemd-253.6/sbin"
+Environment="TZDIR=/nix/store/vzgyz71zc2f7l5ydk5kx8b1rkjv14yyj-tzdata-2023c/share/zoneinfo"
+
+ExecStart=/nix/store/3jkrmy95bqbhngqjx98vprsrrlqvgd40-unit-script-bluetoothspoof-start/bin/bluetoothspoof-start
+Type=oneshot
+User=root
+
