@@ -145,6 +145,45 @@ in
   #   ];
   # };
 
+  laptop = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs unstable system user fix;
+      host = {
+        hostName = "laptop";
+        #   mainMonitor = "HDMI-A-1";
+        #   secondMonitor = "HDMI-A-2";
+      };
+    }; # Pass flake variable
+    modules = [
+      # Modules that are used.
+      nur.nixosModules.nur
+      # hyprland.nixosModules.default
+      ./laptop
+      ./configuration.nix
+
+      home-manager.nixosModules.home-manager
+      {
+        # Home-Manager module that is used.
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit unstable user fix;
+          host = {
+            hostName = "desktop"; #For Xorg iGPU  | Hyprland iGPU
+            #   mainMonitor = "HDMI-A-1";   #HDMIA3         | HDMI-A-3
+            #   secondMonitor = "HDMI-A-2"; #DP1            | DP-1
+          };
+        }; # Pass flake variable
+        home-manager.users.${user} = {
+          imports = [
+            ./home.nix
+            ./laptop/home.nix
+          ];
+        };
+      }
+    ];
+  };
   desktop = lib.nixosSystem {
     inherit system;
     specialArgs = {
