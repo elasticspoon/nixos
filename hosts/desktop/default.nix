@@ -23,6 +23,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/bluetooth.nix
+      ../../modules/droidcam
       ../../services/bluetoothspoof.nix
     ]
     ++ (import ../../services);

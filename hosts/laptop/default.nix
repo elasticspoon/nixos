@@ -23,8 +23,10 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/bluetooth.nix
+      ../../modules/droidcam
     ]
     ++ (import ../../services);
+
   # Default UEFI setup
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

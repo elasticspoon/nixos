@@ -74,3 +74,7 @@ function ssh-list {
 if [ -f ~/.config/bash/scripts/flash-glove80.sh ]; then
 	alias ,flash="~/.config/bash/scripts/flash-glove80.sh"
 fi
+
+exists droidcam && {
+	alias droidcam='droidcam -size=720x1280 -videoconfig'
+}
