@@ -95,12 +95,12 @@
   };
 
   services = {
-    # logind = {
-    #    lidSwitch = "ignore";
-    #   extraConfig = ''
-    #     HandlePowerKey=ignore
-    #   '';
-    # };
+    logind = {
+      lidSwitch = "suspend-then-hibernate";
+      # extraConfig = ''
+      #   HandlePowerKey=ignore
+      # '';
+    };
     # acpid = {
     #   enable = true;
     #   lidEventCommands = ''
