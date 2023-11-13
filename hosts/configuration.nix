@@ -18,6 +18,8 @@
 }: {
   imports = [
     ../modules/i3.nix
+    ../modules/power.nix
+    ../modules/options.nix
   ];
 
   users.users.${user} = {

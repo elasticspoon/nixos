@@ -49,6 +49,7 @@
   networking.hostName = "laptop"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  laptop.enable = true;
   # hardware = {
   #   sane = {                                    # Used for scanning with Xsane
   #     enable = true;

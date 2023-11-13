@@ -7,29 +7,38 @@ notify-send "Nix Update" "Nix flake update has completed."
 )'
 
 alias ,nix-build='(
+start_time=$(date +%s.%N)
 pushd ~/.dotfiles > /dev/null
 git add .
 nixos-rebuild build --flake .#
 sudo ./result/bin/switch-to-configuration dry-activate --show-trace
 popd > /dev/null
-notify-send "Nix Build" "Nix flake build has completed."
+end_time=$(date +%s.%N)
+elapsed_time=$(awk "BEGIN { print int(($end_time - $start_time) * 1000) }")
+notify-send "Nix Rebuild" "Nix flake build has completed in ${elapsed_time} ms."
 )'
 
 alias ,nix-test='(
+start_time=$(date +%s.%N)
 pushd ~/.dotfiles > /dev/null
 git add .
 nixos-rebuild build --flake .#
 sudo ./result/bin/switch-to-configuration test --show-trace
 popd > /dev/null
-notify-send "Nix Rebuild" "Nix flake rebuild has completed."
+end_time=$(date +%s.%N)
+elapsed_time=$(awk "BEGIN { print int(($end_time - $start_time) * 1000) }")
+notify-send "Nix Rebuild" "Nix flake rebuild has completed in ${elapsed_time} ms."
 )'
 
 alias ,nix-switch='(
+start_time=$(date +%s.%N)
 pushd ~/.dotfiles > /dev/null
 git add .
 sudo nixos-rebuild switch --flake .#
 popd > /dev/null
-notify-send "Nix Rebuild" "Nix flake rebuild has completed."
+end_time=$(date +%s.%N)
+elapsed_time=$(awk "BEGIN { print int(($end_time - $start_time) * 1000) }")
+notify-send "Nix Rebuild" "Nix flake rebuild has completed in ${elapsed_time} ms."
 )'
 
 alias ,nix-store='(
