@@ -4,6 +4,11 @@
   home.packages = with pkgs; [
     gofumpt
     goimports-reviser
+
+    # protobufs
+    protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
   ];
 
   programs.go = {

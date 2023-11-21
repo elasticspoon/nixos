@@ -97,10 +97,10 @@
 
   services = {
     logind = {
-      lidSwitch = "suspend-then-hibernate";
-      # extraConfig = ''
-      #   HandlePowerKey=ignore
-      # '';
+      lidSwitch = "suspend";
+      extraConfig = ''
+        IdleActionSec=15min
+      '';
     };
     # acpid = {
     #   enable = true;
