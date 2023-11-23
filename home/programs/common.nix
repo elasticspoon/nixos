@@ -38,6 +38,8 @@
     # dbeaver
     # mycli
     # pgcli
+    #
+    sqlite
   ];
 
   programs = {
