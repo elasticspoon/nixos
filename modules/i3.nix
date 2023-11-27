@@ -3,7 +3,7 @@
   # environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   services.xserver = {
     enable = true;
-    videoDrivers = [ "kvm-amd" ];
+    videoDrivers = [ "kvm-amd" "amdgpu" ];
     # deviceSection = ''Option "TearFree" "true"'';
 
     desktopManager.xfce.enable = true;

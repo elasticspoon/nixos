@@ -151,13 +151,9 @@ set $ws7 "7:  "
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10:  "
-set $lmon HDMI-1
-set $rmon DP-2
+set $lmon HDMI-A-0
+set $rmon DisplayPort-1
 
-
-assign [class="kitty"] $ws2
-assign [class="obsidian"] $ws3
-assign [class="vlc"] $ws7
 
 for_window [class="pavucontrol"] $float
 for_window [class="thunar"] $float
@@ -168,6 +164,10 @@ workspace $ws3 output $lmon
 workspace $ws5 output $lmon
 workspace $ws6 output $lmon
 workspace $ws7 output $rmon
+
+assign [class="kitty"] $ws2
+assign [class="obsidian"] $ws3
+assign [class="vlc"] $ws7
 
 
 # open a new empty_workspace

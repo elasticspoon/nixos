@@ -24,7 +24,6 @@
       ./hardware-configuration.nix
       ../../modules/bluetooth.nix
       ../../modules/droidcam
-      ../../services/bluetoothspoof.nix
     ]
     ++ (import ../../services);
 

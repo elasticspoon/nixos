@@ -9,6 +9,8 @@
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
+
+    air # hot reload for go
   ];
 
   programs.go = {
