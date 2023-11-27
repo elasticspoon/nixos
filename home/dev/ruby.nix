@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   standardrb = pkgs.callPackage ../../pkgs/standard { };
+  grpc-tools = pkgs.callPackage ../../pkgs/grpc-tools { };
 in
 {
   #TODO: add to fix this to work across nix and ubuntu
@@ -28,6 +29,7 @@ in
     (ruby_3_2.withPackages (ps:
       with ps; [
         standardrb
+        grpc-tools
         #TODO: remove theses two dependencies
         solargraph
         rubocop-performance

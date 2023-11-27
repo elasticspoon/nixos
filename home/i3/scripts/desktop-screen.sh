@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 if [[ "$MONITOR" == "1080+1440" ]]; then
 	xrandr \
-		--output DP-1 --off \
-		--output DP-2 --mode 3440x1440 --pos 1920x0 --rotate normal \
-		--output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal \
-		--output HDMI-2 --off \
-		--output DVI-D-1 --off
+		--output DisplayPort-0 --off \
+		--output DisplayPort-1 --mode 3440x1440 --pos 1920x0 --rotate normal \
+		--output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal \
+		--output HDMI-A-1 --off --output DVI-D-0 --off
 fi
