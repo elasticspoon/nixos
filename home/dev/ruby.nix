@@ -1,13 +1,14 @@
 { pkgs, ... }:
 let
   standardrb = pkgs.callPackage ../../pkgs/standard { };
-  grpc-tools = pkgs.callPackage ../../pkgs/grpc-tools { };
+  erb-format = pkgs.callPackage ../../pkgs/erb-format { };
 in
 {
   #TODO: add to fix this to work across nix and ubuntu
   home.file = {
     ".railsrc".source = ./config/railsrc;
     ".bundle/config".source = ./config/bundle.config;
+    # ".prettierrc.js".source = ./config/prettierrc.js;
     # ".config/rubocop/config.yml".source = ./config/rubocop.yml;
     ".config/rubocop/config.yml".text = with standardrb.gems; ''
       require:
@@ -29,7 +30,7 @@ in
     (ruby_3_2.withPackages (ps:
       with ps; [
         standardrb
-        grpc-tools
+        erb-format
         #TODO: remove theses two dependencies
         solargraph
         rubocop-performance

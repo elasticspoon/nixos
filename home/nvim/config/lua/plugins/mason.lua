@@ -11,10 +11,12 @@ local function getOsServers()
 	local serverInstalls = {
 		"shfmt",
 		"erb-lint",
+		"prettier",
 		"htmlbeautifier",
 		"css-lsp",
 		"html-lsp",
 		"bash-language-server",
+		"emmet-language-server",
 	}
 
 	if os.getenv("NIX_PATH") == nil and os.getenv("NIX_STORE") == nil then
@@ -36,6 +38,21 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
+				emmet_language_server = {
+					showSuggestionsAsSnippets = true,
+				},
+				-- html = {
+				-- 	filetypes = {
+				-- 		"html",
+				-- 		"eruby",
+				-- 		"erb",
+				-- 	},
+				-- 	init_options = {
+				-- 		userLanguages = {
+				-- 			eruby = "erb",
+				-- 		},
+				-- 	},
+				-- },
 				lua_ls = {
 					mason = false,
 					cmd = { "lua-language-server" },
