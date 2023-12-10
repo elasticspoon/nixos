@@ -17,7 +17,7 @@ for i in {1..5}; do
 		fi
 	done
 
-	sleep 3
+	sleep 300
 	echo "retrying failed sites"
 
 	url_list=("${failed_sites[@]}")

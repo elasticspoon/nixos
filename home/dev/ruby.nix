@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   standardrb = pkgs.callPackage ../../pkgs/standard { };
+  grpc-tools = pkgs.callPackage ../../pkgs/grpc-tools { };
   erb-format = pkgs.callPackage ../../pkgs/erb-format { };
 in
 {
@@ -31,6 +32,7 @@ in
       with ps; [
         standardrb
         erb-format
+        grpc-tools
         #TODO: remove theses two dependencies
         solargraph
         rubocop-performance
