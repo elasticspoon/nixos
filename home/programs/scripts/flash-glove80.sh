@@ -54,5 +54,5 @@ function copy_to_volume {
 	echo -e "\b\b\b\b... done"
 }
 
-copy_to_volume "left" "/run/media/$USER/GLV80LHBOOT"
 copy_to_volume "right" "/run/media/$USER/GLV80RHBOOT"
+copy_to_volume "left" "/run/media/$USER/GLV80LHBOOT"
