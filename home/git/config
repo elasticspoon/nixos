@@ -11,3 +11,6 @@
 [user]
 	email = "quesadillaman@gmail.com"
 	name = "YuriBocharov"
+
+[commit]
+  template = "~/.config/git/template/commit"

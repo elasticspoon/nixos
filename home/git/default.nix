@@ -11,6 +11,7 @@
   home.file = {
     ".config/lazygit/config.yml".source = ./lazygit-config.yml;
     ".config/git/config".source = ./config;
+    ".config/git/template/commit".source = ./commit-template;
     ".config/git/template/hooks" = {
       source = ./hooks;
       recursive = true;
