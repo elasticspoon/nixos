@@ -76,5 +76,6 @@ if [ -f ~/.config/bash/scripts/flash-glove80.sh ]; then
 fi
 
 exists droidcam && {
+	alias ,cam='droidcam-cli -size=1280x720 -hflip 192.168.1.161 4747'
 	alias droidcam='droidcam -size=720x1280 -videoconfig'
 }
