@@ -68,6 +68,8 @@
       jack.enable = true;
     };
   };
+
+
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -142,7 +144,14 @@
       keep-derivations      = true
     '';
   };
-  nixpkgs.config.allowUnfree = true; # Allow proprietary software.
+
+  nixpkgs.config = {
+    allowUnfree = true; # Allow proprietary software.
+    # done to allow obsidian to run
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
+  };
 
   system = {
     # NixOS settings
