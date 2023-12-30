@@ -12,6 +12,7 @@
     enable = true;
     device = "/dev/sda"; # or "nodev" for efi only
     configurationLimit = 5;
+    timeout = 10;
   };
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;

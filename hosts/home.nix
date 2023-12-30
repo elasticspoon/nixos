@@ -156,6 +156,9 @@
       #
       # Flatpak
       #obs-studio       # Recording/Live Streaming
+
+      # wrk # HTTP Benchmarking
+      k6 # HTTP Benchmarking
     ];
 
     # file.".config/wall".source = ../modules/themes/wall;
