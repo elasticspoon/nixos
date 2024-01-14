@@ -17,7 +17,7 @@
 #       └─ ./hardware
 #           └─ default.nix
 #
-{ pkgs, ... }: {
+{ pkgs, user,  ... }: {
   imports =
     [
       # Include the results of the hardware scan.
@@ -94,6 +94,17 @@
     #  LIBVA_DRIVER_NAME = "i965";
     # };
   };
+  # virtualisation.virtualbox = {
+  #   host = {
+  #     enable = true;
+  #     enableExtensionPack = true;
+  #   };
+  #   guest = {
+  #     enable = true;
+  #   };
+  # };
+  # users.extraGroups.vboxusers.members = [ "${user}" ];
+
 
   services = {
     logind = {
