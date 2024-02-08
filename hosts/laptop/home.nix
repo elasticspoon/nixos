@@ -40,6 +40,10 @@
       #     # Dependencies
       #     gmtp              # Used for mounting gopro
       #     ispell            # Emacs spelling
+      gtk3
+      webkitgtk
+      upx
+      nsis
       #
       discord # Comms           # See overlay default.nix
       vlc # Media Player

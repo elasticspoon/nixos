@@ -10,6 +10,8 @@ return {
 				bash = true,
 				sh = true,
 				go = true,
+				javascriptreact = true,
+
 				["*"] = false,
 			},
 		},

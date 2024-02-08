@@ -73,7 +73,8 @@ See the above repository for updates as well as full license text. */
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover
   > #sidebar {
   min-width: var(--uc-sidebar-hover-width) !important;
-  transition: min-width 100ms linear var(--uc-autohide-sidebar-delay),
+  transition:
+    min-width 100ms linear var(--uc-autohide-sidebar-delay),
     box-shadow 500ms linear !important;
   box-shadow: 0 0 4px rgba(10, 10, 10, 0.5);
   clip-path: inset(0px -15px 0px -15px);
@@ -151,7 +152,9 @@ See the above repository for updates as well as full license text. */
           var(--toolbarbutton-outer-padding)
       ) - var(--tab-min-height) - 16px - var(--bookmark-block-padding)
   );
-  background-position: top left, top left,
+  background-position:
+    top left,
+    top left,
     var(--lwt-background-alignment, top left);
   background-position-y: top, top, var(--uc-bg-y), var(--uc-bg-y),
     var(--uc-bg-y);

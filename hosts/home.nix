@@ -57,6 +57,7 @@
       # mpv               # Media Player
       pulseaudio
       pavucontrol # Audio Control
+      thunderbird # Email
       #plex-media-player # Media Player
       # vlc               # Media Player
       # stremio           # Media Streamer
