@@ -1,6 +1,6 @@
 [
-  ./docker.nix
-  ./postgres.nix
-  ./my_sql.nix
+  # ./docker.nix
+  # ./postgres.nix
+  # ./my_sql.nix
   ./syncthing.nix
 ]

@@ -11,6 +11,7 @@ return {
 				sh = true,
 				go = true,
 				javascriptreact = true,
+				typescriptreact = true,
 
 				["*"] = false,
 			},

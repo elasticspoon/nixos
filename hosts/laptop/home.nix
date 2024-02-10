@@ -30,6 +30,7 @@
   home = {
     # Specific packages for desktop
     packages = with pkgs; [
+      wails
       #     # Applications
       #     ansible           # Automation
       #     sshpass           # Ansible Dependency
@@ -40,10 +41,6 @@
       #     # Dependencies
       #     gmtp              # Used for mounting gopro
       #     ispell            # Emacs spelling
-      gtk3
-      webkitgtk
-      upx
-      nsis
       #
       discord # Comms           # See overlay default.nix
       vlc # Media Player
