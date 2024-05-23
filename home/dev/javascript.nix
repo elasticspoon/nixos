@@ -7,5 +7,6 @@
     nodePackages.pnpm
     nodePackages.node2nix
     nodePackages.vsc-leetcode-cli
+    nodePackages.live-server
   ];
 }

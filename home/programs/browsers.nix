@@ -20,9 +20,9 @@
         name = "default";
         isDefault = true;
 
-        extraConfig = ''
-          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-      '';
+      #   extraConfig = ''
+      #     user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+      # '';
       };
     };
   };

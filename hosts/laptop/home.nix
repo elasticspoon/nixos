@@ -31,6 +31,7 @@
     # Specific packages for desktop
     packages = with pkgs; [
       wails
+      nix-index
       #     # Applications
       #     ansible           # Automation
       #     sshpass           # Ansible Dependency
@@ -41,7 +42,7 @@
       #     # Dependencies
       #     gmtp              # Used for mounting gopro
       #     ispell            # Emacs spelling
-      #
+      wkhtmltopdf-bin     #
       discord # Comms           # See overlay default.nix
       vlc # Media Player
       mupdf # PDF Reader

@@ -23,7 +23,16 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/bluetooth.nix
-      ../../modules/droidcam
+
+      # error: builder for '/nix/store/6pvlfxy21sk258llrgv3i1y8nia98f3f-v4l2loopback-dc-0.drv' failed with exit code 2;
+       # last 10 log lines:
+       # > /build/source/v4l2loopback/v4l2loopback-dc.c:622:3: error: implicit declaration of function 'strlcpy'; did you mean 'strncpy'? [8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Werror=implicit-function-declaration8;;]
+       # >   622 |   strlcpy(cap->driver, "Droidcam", sizeof(cap->driver));
+       # >       |   ^~~~~~~
+       # >       |   strncpy
+       # > cc1: some warnings being treated as errors
+
+      # ../../modules/droidcam # broken atm
     ]
     ++ (import ../../services);
 
