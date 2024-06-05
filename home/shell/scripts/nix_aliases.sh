@@ -1,4 +1,5 @@
-# NIXOS
+# NIXOS\
+alias docker-compose='docker compose'
 alias ,nix-update='(
 pushd ~/.dotfiles > /dev/null
 nix flake update

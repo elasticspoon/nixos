@@ -27,6 +27,6 @@
     };
   };
 
-  home.file.".mozilla/firefox/default/chrome/userChrome.css".source = ./userChrome.css;
-  home.file.".mozilla/firefox/default/chrome/userContent.css".source = ./userContent.css;
+  # home.file.".mozilla/firefox/default/chrome/userChrome.css".source = ./userChrome.css;
+  # home.file.".mozilla/firefox/default/chrome/userContent.css".source = ./userContent.css;
 }

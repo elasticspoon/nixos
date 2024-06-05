@@ -20,7 +20,7 @@
         dmenu
         alsa-utils
         # i3blocks # status bar
-        i3lock # default i3 screen locker
+        # i3lock # default i3 screen locker
         # xautolock     # lock screen after some time
         i3status # provide information to i3bar
         # i3status-rust # provide information to i3bar

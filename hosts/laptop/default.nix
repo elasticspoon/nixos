@@ -146,8 +146,8 @@
 
   programs = {
     nm-applet.enable = true;
-    xss-lock.enable = true;
-    xss-lock.lockerCommand = "${pkgs.i3lock}/bin/i3lock -c 000000";
+    # xss-lock.enable = true;
+    # xss-lock.lockerCommand = "${pkgs.i3lock}/bin/i3lock -c 000000";
   };
 
   nixpkgs.overlays = [

@@ -32,6 +32,7 @@
     packages = with pkgs; [
       wails
       nix-index
+      heroku
       #     # Applications
       #     ansible           # Automation
       #     sshpass           # Ansible Dependency
