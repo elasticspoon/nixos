@@ -21,6 +21,7 @@
     ./nvim
     ./git
     ./programs
+    ./dotfiles
   ]; # Home Manager Modules
 
   home = {

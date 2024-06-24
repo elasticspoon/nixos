@@ -1,0 +1,52 @@
+
+# byteblitzstudios
+Host wordpress2
+  HostName 34.75.107.167
+Host wordpress
+  HostName 34.138.125.42
+Host coder
+  HostName 34.23.70.115
+# hosting nginx/mealie
+# yb95
+Host nginx-google
+  HostName 34.139.200.229
+
+# hosting freshrss @qman
+Host freshrss-google
+  HostName 34.75.86.195
+
+# hosting private_events
+# yurib95
+Host private_events-google
+  HostName 34.148.59.37
+
+# hosting pihole
+Host rasp_pi
+  User Hydrogen2540
+  HostName 192.168.1.188
+
+Host *
+  User bandito
+  IdentityFile ~/.ssh/id_rsa
+
+# ------------START-CODER-----------
+# This section is managed by coder. DO NOT EDIT.
+#
+# You should not hand-edit this section unless you are removing it, all
+# changes will be lost when running "coder config-ssh".
+#
+Host coder.Test
+       HostName coder.Test
+       ConnectTimeout=0
+       StrictHostKeyChecking=no
+       UserKnownHostsFile=/dev/null
+       LogLevel ERROR
+Host coder.Test.main
+       HostName coder.Test.main
+       ConnectTimeout=0
+       StrictHostKeyChecking=no
+       UserKnownHostsFile=/dev/null
+       LogLevel ERROR
+       ProxyCommand /run/user/1000/go-build1445546352/b001/exe/main --global-config /home/bandito/.config/coderv2 ssh --stdio Test.main
+# ------------END-CODER------------
+

@@ -1,0 +1,45 @@
+[color]
+	ui = "auto"
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = "true"
+
+[user]
+	email = "mail@yuribocharov.dev"
+	name = elasticspoon
+  signingkey = ~/.ssh/id_rsa.pub
+
+[gpg]
+  format = "ssh"
+
+[merge]
+  conflictstyle = "zdiff3"
+
+[rebase]
+  autosquash = "true"
+
+[commit]
+  verbose = "true"
+  gpgsign = "true"
+
+[rerere]
+  enabled = "true"
+
+[diff]
+  algorithm = "histogram"
+  tool = "meld"
+
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+
+[branch]
+  sort = "-committerdate"
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
