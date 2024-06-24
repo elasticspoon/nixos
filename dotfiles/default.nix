@@ -1,18 +1,18 @@
 { pkgs, ... }: {
   home.file = {
-    ".fonts".source = {
+    ".fonts" = {
       source = ./fonts;
       recursive = true;
     };
-    ".config".source = {
+    ".config" = {
       source = ./config;
       recursive = true;
     };
-    ".ssh".source = {
+    ".ssh" = {
       source = ./ssh;
       recursive = true;
     };
-    ".screenlayout".source = {
+    ".screenlayout" = {
       source = ./screenlayout;
       recursive = true;
     };
