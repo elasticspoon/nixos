@@ -1,6 +1,9 @@
-[
+{ ... }: 
+{
+  imports = [
   ./docker.nix
-  ./postgres.nix
-  ./my_sql.nix
-  ./syncthing.nix
-]
+  # ./postgres.nix
+  # ./my_sql.nix
+  # ./syncthing.nix
+  ]; 
+}

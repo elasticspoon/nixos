@@ -1,9 +1,9 @@
-{ user, ... }: {
-  services.postgresql = {
+{ ... }: {
+  home.services.postgresql = {
     enable = true;
     ensureUsers = [
       {
-        name = "${user}";
+        name = "bandito";
         ensureClauses = {
           superuser = true;
           createdb = true;
